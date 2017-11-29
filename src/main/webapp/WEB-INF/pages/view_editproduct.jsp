@@ -25,6 +25,23 @@
                                 <div class="container-fluid">
                                     <div class="form-group row">
                                         <c:if test="${not view}">
+                                            <label for="product_name" class="col-2 col-form-label">Name:</label>
+                                        </c:if>
+                                        <div class="col-10">
+                                            <c:if test="${view}">
+                                                <label>
+                                                    ${product.name}
+                                                </label>
+                                            </c:if>
+                                            <c:if test="${not view}">
+                                                <input class="form-control" type="text" value="${product.name}" id="product_name" name="product_name"/>
+                                            </c:if>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <c:if test="${not view}">
                                             <label for="product_image" class="col-2 col-form-label">Image:</label>
                                         </c:if>
                                         <div class="col-10 product-image-view">
