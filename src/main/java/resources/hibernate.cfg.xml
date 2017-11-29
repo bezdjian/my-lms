@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/registration</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.springapp.mvc.domain.ProductEntity"/>
+        <mapping class="com.springapp.mvc.domain.CourseEntity"/>
+        <mapping class="com.springapp.mvc.domain.EmploymentEntity"/>
+        <mapping class="com.springapp.mvc.domain.PersonEntity"/>
+        <mapping class="com.springapp.mvc.domain.PersonProductEntity"/>
+        <event type="auto-flush" />
+        <!-- DB schema will be updated if needed -->
+    </session-factory>
+</hibernate-configuration>
