@@ -1,5 +1,8 @@
- Spring MVC
+ my LMS
  -
+ A LMS app with Java, Spring MVC, Hibernate and Maven.
+ 
+ 
 A web application for learning Spring MVC.
 
 Web application is about:
