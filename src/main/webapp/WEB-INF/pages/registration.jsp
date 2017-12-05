@@ -18,7 +18,7 @@
 
 <div class="registrationbox">
     <h1 class="header-panel block">${message}</h1>
-    <c:if test="${message_err}">
+    <c:if test="${message_err != null}">
         <span class="alert alert-danger center-block">${message_err}</span>
     </c:if>
 

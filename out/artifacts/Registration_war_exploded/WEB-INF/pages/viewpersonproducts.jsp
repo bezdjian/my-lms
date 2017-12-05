@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
@@ -19,22 +19,23 @@
                             <div>
                                 <c:forEach var="products" items="${personproducts}">
 
-                                        <div class="person-product-container">
-                                            <div class="product-image">
-                                                <img src="${contextPath}/resources/uploads/${products.image}" style="width: 65px;height: 65px;border-radius: 50%;"/>
-                                            </div>
-                                            <div class="product-info">
-                                                <a href="<c:url value="/view_editproduct/${products.id}/view"/>">
+                                    <div class="person-product-container">
+                                        <div class="product-image">
+                                            <img src="${contextPath}/resources/uploads/${products.image}"
+                                                 style="width: 65px;height: 65px;border-radius: 50%;"/>
+                                        </div>
+                                        <div class="product-info">
+                                            <a href="<c:url value="/view_editproduct/${products.id}/view"/>">
                                                     ${products.name}
-                                                </a>
-                                                <span class="product-date">
-                                                        ${products.createDate}
-                                                </span>
-                                                <div>
+                                            </a>
+                                            <span class="product-date">
+                                                    ${products.createDate}
+                                            </span>
+                                            <div>
                                                     ${products.product_description}
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
                                 </c:forEach>
                             </div>
                         </div>
@@ -79,4 +80,4 @@
             </div>
         </div>
     </div>
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

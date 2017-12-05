@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
@@ -26,7 +26,8 @@
 
                                 <div class="person-product-container">
                                     <div class="product-image">
-                                        <img src="${contextPath}/resources/uploads/${course.courseimage}" style="width: 65px;height: 65px;border-radius: 50%;"/>
+                                        <img src="${contextPath}/resources/uploads/${course.courseimage}"
+                                             style="width: 65px;height: 65px;border-radius: 50%;"/>
                                     </div>
                                     <div class="product-info">
                                         <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
@@ -97,4 +98,4 @@
             </div>
         </div>
     </div>
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

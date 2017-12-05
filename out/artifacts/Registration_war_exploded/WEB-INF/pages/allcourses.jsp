@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
@@ -21,12 +21,13 @@
                             </div>
                         </div>
 
-                       <div>
+                        <div>
                             <c:forEach var="course" items="${course}">
 
                                 <div class="person-product-container">
                                     <div class="product-image">
-                                        <img src="${realPath}/${course.courseimage}" style="width: 65px;height: 65px;border-radius: 50%;"/>
+                                        <img src="${realPath}/${course.courseimage}"
+                                             style="width: 65px;height: 65px;border-radius: 50%;"/>
                                     </div>
                                     <div class="product-info">
                                         <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
@@ -37,7 +38,7 @@
                                                 <a href="<c:url value='/view_editcourse/${course.id}/edit'/>">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
-                                                <a href="<c:url value='/delete/course/${course.id}'/>">
+                                               <a href="<c:url value='/delete/course/${course.id}'/>">
                                                     <i class="fa fa-remove" aria-hidden="true"></i>
                                                 </a>
                                            </c:if>
@@ -89,4 +90,4 @@
             </div>
         </div>
     </div>
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

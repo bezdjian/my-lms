@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
         <div id="header-content" style="border: 1px solid #efefef">
@@ -29,10 +29,11 @@
                                         </c:if>
                                         <div class="col-10 product-image-view">
                                             <c:if test="${view}">
-                                                <img src="/resources/uploads/${product.image}" />
+                                                <img src="/resources/uploads/${product.image}"/>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" type="text" value="${product.image}" id="product_image" name="product_image"/>
+                                                <input class="form-control" type="text" value="${product.image}"
+                                                       id="product_image" name="product_image"/>
                                             </c:if>
 
                                         </div>
@@ -45,7 +46,8 @@
                                                 <label for="product_date">${product.createDate}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" id="product_date" name="product_date" type="date" value="${product.createDate}" />
+                                                <input class="form-control" id="product_date" name="product_date"
+                                                       type="date" value="${product.createDate}"/>
                                             </c:if>
 
                                         </div>
@@ -58,8 +60,10 @@
                                                 <label>${product.price}${product.currency}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" id="product_price" name="product_price" type="text" value="${product.price}" />
-                                                <select id="product_price_currency" name="product_price_currency" class="currency-selector">
+                                                <input class="form-control" id="product_price" name="product_price"
+                                                       type="text" value="${product.price}"/>
+                                                <select id="product_price_currency" name="product_price_currency"
+                                                        class="currency-selector">
                                                     <option value=":-">SEK :-</option>
                                                     <option value="$">USD &dollar;</option>
                                                     <option value="€">EURO &euro;</option>
@@ -71,13 +75,16 @@
 
 
                                     <div class="form-group row">
-                                        <label for="product_description" class="col-2 col-form-label">Description:</label>
+                                        <label for="product_description"
+                                               class="col-2 col-form-label">Description:</label>
                                         <div class="col-10">
                                             <c:if test="${view}">
                                                 <label>${product.product_description}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <textarea class="form-control" id="product_description" name="product_description" cols="100">${product.product_description}</textarea>
+                                                <textarea class="form-control" id="product_description"
+                                                          name="product_description"
+                                                          cols="100">${product.product_description}</textarea>
                                             </c:if>
 
                                         </div>
@@ -124,4 +131,4 @@
         </div>
     </div>
 
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

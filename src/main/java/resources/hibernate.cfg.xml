@@ -12,7 +12,7 @@
         <mapping class="com.springapp.mvc.domain.EmploymentEntity"/>
         <mapping class="com.springapp.mvc.domain.PersonEntity"/>
         <mapping class="com.springapp.mvc.domain.PersonProductEntity"/>
-        <event type="auto-flush" />
+        <event type="auto-flush"/>
         <!-- DB schema will be updated if needed -->
     </session-factory>
 </hibernate-configuration>

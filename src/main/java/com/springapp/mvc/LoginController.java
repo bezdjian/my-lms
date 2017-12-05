@@ -44,7 +44,7 @@ public class LoginController {
 
         if (null != user) {
             mav = new ModelAndView(new RedirectView("home")); // RedirectView to change the URL to /home.
-            mav.addObject("person", user);
+            //mav.addObject("person", user);
 
             //This one is working now..
             request.getSession().setAttribute("person", user);

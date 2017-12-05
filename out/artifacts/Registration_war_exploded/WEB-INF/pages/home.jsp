@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="container" class="container-fluid">
     <div id="page" class="panel panel-default">
@@ -10,7 +10,7 @@
                     <div class="panel">
                         <div class="panel-heading">
                             <div id="welcome-panel" class="welcome-panelsss">
-                                <h4>Welcome  ${person.firstname} ${person.lastname}!</h4>
+                                <h4>Welcome ${person.firstname} ${person.lastname}!</h4>
                             </div>
                         </div>
 
@@ -40,7 +40,8 @@
 
                                     <div class="person-product-container">
                                         <div class="product-image">
-                                            <img src="${contextPath}/resources/uploads/${products.image}" style="width: 65px;height: 65px;border-radius: 50%;"/>
+                                            <img src="${contextPath}/resources/uploads/${products.image}"
+                                                 style="width: 65px;height: 65px;border-radius: 50%;"/>
                                         </div>
                                         <div class="product-info">
                                             <a href="<c:url value="/view_editproduct/${products.id}/view"/>">
@@ -91,4 +92,4 @@
         </div>
     </div>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
@@ -31,19 +31,19 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="user" items="${allusers}">
-                                            <tr>
-                                                <td class="block">
-                                                    <a href="${contextPath}/enroltocourse/${course.id}/${user.id}">
-                                                        <label class="icon">
-                                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                        </label>
-                                                            ${user.fullName}
-                                                    </a>
-                                                </td>
-                                                <td class="block">${user.email}</td>
-                                            </tr>
-                                        </c:forEach>
+                                    <c:forEach var="user" items="${allusers}">
+                                        <tr>
+                                            <td class="block">
+                                                <a href="${contextPath}/enroltocourse/${course.id}/${user.id}">
+                                                    <label class="icon">
+                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                                    </label>
+                                                        ${user.fullName}
+                                                </a>
+                                            </td>
+                                            <td class="block">${user.email}</td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -117,4 +117,4 @@
         </div>
     </div>
 
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

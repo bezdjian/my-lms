@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
         <div id="header-content" style="border: 1px solid #efefef">
@@ -16,13 +16,14 @@
                 <div class="col-sm-9">
                     <div class="panel panel-default">
                         <c:if test="${view}">
-                        <div class="panel-heading">
-                            <div id="welcome-panel" class="welcome-panelsss">
-                                <h4>${course.coursename}</h4>
+                            <div class="panel-heading">
+                                <div id="welcome-panel" class="welcome-panelsss">
+                                    <h4>${course.coursename}</h4>
+                                </div>
                             </div>
-                        </div>
                         </c:if>
-                        <form:form action="${contextPath}/editcourse/${course.id}" modelAttribute="course" enctype="multipart/form-data">
+                        <form:form action="${contextPath}/editcourse/${course.id}" modelAttribute="course"
+                                   enctype="multipart/form-data">
                             <div class="panel-body">
                                 <div class="container-fluid">
                                     <div class="form-group">
@@ -32,7 +33,8 @@
                                                 <label for="course_name">${course.coursename}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" type="text" value="${course.coursename}" id="course_name" name="course_name"/>
+                                                <input class="form-control" type="text" value="${course.coursename}"
+                                                       id="course_name" name="course_name"/>
                                             </c:if>
                                         </div>
                                     </div>
@@ -41,7 +43,7 @@
                                         <label class="col-2 col-form-label">Image:</label>
                                         <div class="col-10">
                                             <c:if test="${view}">
-                                                <img src="${course.courseimage}" />
+                                                <img src="${course.courseimage}"/>
                                             </c:if>
                                             <c:if test="${not view}">
                                                 <input class="form-control" type="file"
@@ -59,7 +61,8 @@
                                                 <label for="course_category">${course.categoryid}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" type="text" value="${course.categoryid}" id="course_category" name="course_category"/>
+                                                <input class="form-control" type="text" value="${course.categoryid}"
+                                                       id="course_category" name="course_category"/>
                                             </c:if>
 
                                         </div>
@@ -72,20 +75,24 @@
                                                 <label for="course_idnumber">${course.idnumber}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" id="course_idnumber" name="course_idnumber" type="text" value="${course.idnumber}" />
+                                                <input class="form-control" id="course_idnumber" name="course_idnumber"
+                                                       type="text" value="${course.idnumber}"/>
                                             </c:if>
 
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="course_description" class="col-2 col-form-label">Description:</label>
+                                        <label for="course_description"
+                                               class="col-2 col-form-label">Description:</label>
                                         <div class="col-10">
                                             <c:if test="${view}">
                                                 <label>${course.description}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <textarea class="form-control" id="course_description" name="course_description" cols="100">${course.description}</textarea>
+                                                <textarea class="form-control" id="course_description"
+                                                          name="course_description"
+                                                          cols="100">${course.description}</textarea>
                                             </c:if>
 
                                         </div>
@@ -167,4 +174,4 @@
         </div>
     </div>
 
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

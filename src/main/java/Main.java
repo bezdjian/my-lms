@@ -1,7 +1,7 @@
 import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.Session;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.metadata.ClassMetadata;
@@ -20,7 +20,7 @@ public class Main {
             Configuration configuration = new Configuration();
             configuration.configure("/resources/hibernate.cfg.xml");
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
-                    configuration.getProperties()). build();
+                    configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         } catch (Throwable ex) {
             System.err.println("Initial sessionFactory creation failed." + ex);

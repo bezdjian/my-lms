@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fomt" uri="http://www.springframework.org/tags/form" %>
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="container" class="container-fluid">
     <div id="page" class="panel panel-default">
@@ -68,7 +68,8 @@
                             </div>
                         </div>
 
-                        <form:form modelAttribute="uploadItem" name="frm" method="post" enctype="multipart/form-data" onsubmit="return validate_image();">
+                        <form:form modelAttribute="uploadItem" name="frm" method="post" enctype="multipart/form-data"
+                                   onsubmit="return validate_image();">
                             <table>
                                 <tr>
                                     <td>
@@ -77,7 +78,7 @@
                                         </fomt:label>
                                     </td>
                                     <td>
-                                        <form:input path="fileData" id="imagetoupload" type="file" />
+                                        <form:input path="fileData" id="imagetoupload" type="file"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -100,4 +101,4 @@
         </div>
     </div>
 
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

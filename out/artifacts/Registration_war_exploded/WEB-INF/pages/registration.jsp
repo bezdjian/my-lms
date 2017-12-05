@@ -6,8 +6,8 @@
 <html>
 <head>
     <title>LMS | Registration</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>" />
-    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.css"/>" />
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
 
 
@@ -67,7 +67,7 @@
                 <label class="icon" for="countryNames"><i class="icon-globe fa fa-globe"></i></label>
                 <form:select path="countryNames" cssClass="countryNames" id="country" name="country">
                     <option value="Select" label="Select your country"></option>
-                    <form:options items="${countryNames}" />
+                    <form:options items="${countryNames}"/>
                 </form:select>
 
             </div>
@@ -121,7 +121,6 @@
             <input type="submit" class="button" value="Login"/>
         </form>
     </div>
-
 
 
     <div style="float: left;padding: 10px;min-height: 1em;width: 96%">

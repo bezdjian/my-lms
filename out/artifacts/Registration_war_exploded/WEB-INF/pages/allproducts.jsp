@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <div id="dialog" title="Confirmation Required">
     Are you sure?
@@ -30,11 +30,12 @@
 
                             <div id="cart-container">
                                 <div id="cart">
-                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="vertical-align: bottom">
+                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"
+                                       style="vertical-align: bottom">
                                         <div class="shopping-cart-box">
                                             <div class="basket-summary-text">Shopping cart</div>
                                             <div class="shopped-items">
-                                               <!-- Loaded here from app.js -->
+                                                <!-- Loaded here from app.js -->
                                             </div>
                                             <div class="shopped-items-footer">
                                                 <div class='summaryShipping'>
@@ -53,7 +54,7 @@
                                 </div>
                                 <span id="itemCount"></span>
                             </div>
-                            
+
                         </div>
 
                         <div class="panel-body">
@@ -71,18 +72,19 @@
                                                 <div class="product-grid__product-wrapper">
                                                     <div class="product-grid__product">
                                                         <div class="product-grid__img-wrapper">
-                                                            <img id="image_${product.id}" class="product-grid__img" src="${contextPath}/resources/uploads/${product.image}" />
+                                                            <img id="image_${product.id}" class="product-grid__img"
+                                                                 src="${contextPath}/resources/uploads/${product.image}"/>
                                                         </div>
                                                         <span class="product-grid__title">${product.name}</span>
                                                         <span class="product-grid__price">${product.price}${product.currency}</span>
                                                         <div class="product-grid__extend-wrapper">
                                                             <div class="product-grid__extend">
                                                                 <p class="product-grid__description">
-                                                                    ${product.product_description}
+                                                                        ${product.product_description}
                                                                 </p>
                                                                 <div class="add_to_cart-div">
                                                                     <span class="product-grid__btn product-grid__add-to-cart addToCart"
-                                                                     onclick="AddToCart('${product.id}', '${product.name}', '${product.price}', '${product.currency}')">
+                                                                          onclick="AddToCart('${product.id}', '${product.name}', '${product.price}', '${product.currency}')">
                                                                         <i class="fa fa-cart-arrow-down"></i>
                                                                         Add to cart
                                                                     </span>
@@ -92,9 +94,10 @@
                                                                         </a>
                                                                     </span>
                                                                     <c:if test="${not person.role == 'admin'}">
-                                                                    <a href="<c:url value='/view_editproduct/${product.id}/edit'/>">
-                                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                                    </a>
+                                                                        <a href="<c:url value='/view_editproduct/${product.id}/edit'/>">
+                                                                            <i class="fa fa-pencil-square-o"
+                                                                               aria-hidden="true"></i>
+                                                                        </a>
                                                                     </c:if>
                                                                 </div>
                                                             </div>
@@ -108,7 +111,8 @@
                                 </div>
                                 <c:if test="${person.role == 'admin'}">
                                     <div class="form-group row">
-                                        <a href="<c:url value="/view_editproduct/0/edit"/>" class="btn btn-primary">Add</a>
+                                        <a href="<c:url value="/view_editproduct/0/edit"/>"
+                                           class="btn btn-primary">Add</a>
                                     </div>
                                 </c:if>
                             </div>
@@ -145,4 +149,4 @@
             </div>
         </div>
     </div>
-    <%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>

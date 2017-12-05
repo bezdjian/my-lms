@@ -58,6 +58,11 @@ div, h4, span, p, input, select, h2, h3, h4, h5 {
     padding: 0;
 }
 
+
+.center-block{
+    text-align: center;
+}
+
 #page {
     width: 80%;
     margin: 0 auto 1em auto;

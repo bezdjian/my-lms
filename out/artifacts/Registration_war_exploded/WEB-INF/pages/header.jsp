@@ -11,7 +11,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <c:if test="${empty person.id}">
-    <c:redirect url="/" />
+    <c:redirect url="/"/>
 </c:if>
 <!DOCTYPE html>
 <head>
@@ -52,26 +52,26 @@
             <li><a href="<c:url value="/allproducts"/>">Book Library</a></li>
         </ul>
         <c:if test="${person.id == null}">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="<c:url value="/" /> ">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                    Login/Sign Up
-                </a>
-            </li>
-        </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="<c:url value="/" /> ">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        Login/Sign Up
+                    </a>
+                </li>
+            </ul>
         </c:if>
         <c:if test="${person.id != null}">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
-                    <span>${person.firstname} ${person.lastname}, ${person.role}</span>
-                </a>
-                <a href="<c:url value="/" />" class="signout">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
+                        <span>${person.firstname} ${person.lastname}, ${person.role}</span>
+                    </a>
+                    <a href="<c:url value="/" />" class="signout">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
         </c:if>
     </div>
 </nav>

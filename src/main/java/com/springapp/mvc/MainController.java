@@ -84,6 +84,9 @@ public class MainController {
 
 		m.addAttribute("personProducts", personProducts);
 		m.addAttribute("personCourses", personCourses);
+
+		//remove message_err
+		request.getSession().setAttribute("message_err", null);
 		return "home";
 	}
 

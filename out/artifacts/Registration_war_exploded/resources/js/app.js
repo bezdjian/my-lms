@@ -1,16 +1,16 @@
 var itemCount = 0;
 var totalPrice = 0;
 
-$(document).ready(function(){
-   //DataTable
-   $("#all-user-table").dataTable();
+$(document).ready(function () {
+    //DataTable
+    $("#all-user-table").dataTable();
 
 
     //Slide down shopping-cart-box
-    $(".fa-shopping-cart").mouseover(function(){
+    $(".fa-shopping-cart").mouseover(function () {
         $(".shopping-cart-box").slideDown();
     });
-    $(document).click(function(){
+    $(document).click(function () {
         $(".shopping-cart-box").slideUp();
     })
     //.mouseleave(function(){
@@ -21,8 +21,8 @@ $(document).ready(function(){
     $("#dialog").dialog({
         autoOpen: false,
         modal: true,
-        buttons : {
-            "Confirm" : function() {
+        buttons: {
+            "Confirm": function () {
                 //Do stuff
                 console.log("You have confirmed!");
                 //Do the checkout transaction
@@ -30,7 +30,7 @@ $(document).ready(function(){
                 //Open congrats dialog
                 $("#dialog-congrats").dialog("open");
             },
-            "Cancel" : function() {
+            "Cancel": function () {
                 //Just close
                 $(this).dialog("close");
             }
@@ -41,8 +41,8 @@ $(document).ready(function(){
     $("#dialog-congrats").dialog({
         autoOpen: false,
         modal: true,
-        buttons : {
-            "OK" : function() {
+        buttons: {
+            "OK": function () {
                 //Just close
                 $(this).dialog("close");
             }
@@ -53,22 +53,21 @@ $(document).ready(function(){
     $(".checkout").prop('disabled', true);
 
     //On checkout, show dialog to confirm.
-    $(".checkout").on("click", function(e) {
+    $(".checkout").on("click", function (e) {
         e.preventDefault();
         $("#dialog").dialog("open");
     });
 
     //Clear basket and cookie.
-    $('.empty_cart').click(function() {
+    $('.empty_cart').click(function () {
         emptyShoppingCart();
     });
-
 
 
     //Loop cookie array to re-add basket count and items in the shopping-box.
     //Get the cookie array.
     var items = $.cookie();
-    for(var key in items){
+    for (var key in items) {
         var product = items[key];
         console.log("Object: " + product.productName);
         //Add numbers on the cart
@@ -80,16 +79,17 @@ $(document).ready(function(){
 });
 
 $.cookie.json = true;
-function AddToCart(productid, name, price, currency){
+
+function AddToCart(productid, name, price, currency) {
     printCartContent(name, price, currency);
     //Add to jQuery Cookie
-    var itemsObject = {productId:productid, productName:name, productPrice:price, productCurrency:currency};
-    $.cookie('item-'+productid, itemsObject);
+    var itemsObject = {productId: productid, productName: name, productPrice: price, productCurrency: currency};
+    $.cookie('item-' + productid, itemsObject);
     //Enable checkout button
     $(".checkout").prop('disabled', false);
 }
 
-function printCartContent(name, price,currency){
+function printCartContent(name, price, currency) {
     itemCount++
     $('#itemCount').html(itemCount).css('display', 'block');
     //Hide Empty Basket text
@@ -97,46 +97,46 @@ function printCartContent(name, price,currency){
     //Append to shopped-items
     $(".shopped-items").append("<div class='summaryShipping'>" +
         "<div class='itemName'>" + name + "</div>" +
-        "<div class='itemPrice'>"+price+currency +"</div>" +
+        "<div class='itemPrice'>" + price + currency + "</div>" +
         "</div>");
     //Total price
     totalPrice += parseInt(price);
     $(".shopped-items-footer").html("<div class='summaryShipping'>" +
         "<div class='itemTotalName'>Total:</div>" +
-        "<div class='itemTotalPrice'>"+totalPrice+currency+"</div>" +
+        "<div class='itemTotalPrice'>" + totalPrice + currency + "</div>" +
         "</div>");
 }
 
 
-function onClickCheckout(){
+function onClickCheckout() {
 
     var contextPath = $("#contextPath").val();
     var personid = $("#personid").val();
 
     var productIDs = [];
     var items = $.cookie();
-    for(var key in items){
+    for (var key in items) {
         var product = items[key];
         productIDs.push(product.productId);
     }
 
-    var data = 'personid='+personid+'&productids='+productIDs;
+    var data = 'personid=' + personid + '&productids=' + productIDs;
     //console.log("DATA: " + data);
     $.ajax({
-        type : "GET",
+        type: "GET",
         //contentType : "application/json",
-        url : contextPath + "/checkout",
-        data : data,
-        dataType : 'html',
-        timeout : 100000,
-        success : function(data) {
+        url: contextPath + "/checkout",
+        data: data,
+        dataType: 'html',
+        timeout: 100000,
+        success: function (data) {
             //console.log("success DATA: " + data);
-            if(data.indexOf('done') >= 0){
+            if (data.indexOf('done') >= 0) {
                 //Close the confirmation dialog
                 $("#dialog").dialog("close");
                 //Clear cookie/shopping-cart
                 emptyShoppingCart();
-            }else{
+            } else {
                 console.log("IN ELSE");
             }
         },
@@ -147,7 +147,7 @@ function onClickCheckout(){
     });
 }
 
-function emptyShoppingCart(){
+function emptyShoppingCart() {
     itemCount = 0;
     totalPrice = 0;
     $('#itemCount').html('').css('display', 'none');
@@ -158,7 +158,7 @@ function emptyShoppingCart(){
         "<div class='itemTotalPrice'>0</div>" +
         "</div>");
     var cookies = $.cookie();
-    for(var cookie in cookies) {
+    for (var cookie in cookies) {
         $.removeCookie(cookie);
     }
     //Disable checkout button
