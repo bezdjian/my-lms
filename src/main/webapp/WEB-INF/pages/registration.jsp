@@ -16,6 +16,7 @@
 </head>
 <body>
 
+
 <div class="registrationbox">
     <h1 class="header-panel block">${message}</h1>
     <c:if test="${message_err != null}">

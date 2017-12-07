@@ -17,4 +17,5 @@ public interface PersonDao {
     List<PersonEntity> getAllUsers();
     //Returns users who are NOT enrolled to the course with courseid
     List<PersonEntity> getAllUnerolledUsers(int courseid);
+    PersonEntity getUserById(int userid);
 }

@@ -14,15 +14,14 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,18 +75,58 @@ public class MainController {
 	}
 
 	@RequestMapping("/home")
-	public String printName(HttpServletRequest request, Model m, @ModelAttribute("registeredUser") PersonEntity registeredUser,
-							@ModelAttribute("homeview") ModelAndView mav){
-		PersonEntity person = (PersonEntity) request.getSession().getAttribute("person");
-		List<ProductEntity> personProducts = personProductDao.getAllPersonProducts(person.getId());
-		List<CourseEntity> personCourses = personCourseDao.getAllPersonCourses(person.getId());
+	public String printName(HttpServletRequest request, Model m, @ModelAttribute("homeview") ModelAndView mav){
+		PersonEntity personInSession = (PersonEntity) request.getSession().getAttribute("person");
+		//Reload person
+		//PersonEntity person = personDao.getUserById(personInSession.getId());
+		List<ProductEntity> personProducts = personProductDao.getAllPersonProducts(personInSession.getId());
+		List<CourseEntity> personCourses = personCourseDao.getAllPersonCourses(personInSession.getId());
 
 		m.addAttribute("personProducts", personProducts);
 		m.addAttribute("personCourses", personCourses);
+		//m.addAttribute("person", person);
 
 		//remove message_err
 		request.getSession().setAttribute("message_err", null);
 		return "home";
+	}
+
+	@RequestMapping("/profile/{userid}")
+	public String userProfile(HttpServletRequest request, Model model, @PathVariable("userid") int userid){
+		//reload user with userid.
+		PersonEntity user = personDao.getUserById(userid);
+		model.addAttribute("person", user);
+		return "profile";
+	}
+
+	@RequestMapping("/editprofile/{userid}/{edit}")
+	public String userProfileEdit(HttpServletRequest request, Model model,
+							  @PathVariable("userid") int userid, @PathVariable("edit") String edit){
+
+		if(edit.equals("doedit")){
+			//Edit person from form.
+			PersonEntity editUser = new PersonEntity();
+			editUser.setId(userid);
+			editUser.setUsername(request.getParameter("person_uname"));
+			editUser.setPassword(request.getParameter("person_password"));
+			editUser.setFirstname(request.getParameter("person_fname"));
+			editUser.setLastname(request.getParameter("person_lname"));
+			editUser.setGender(request.getParameter("gender"));
+			editUser.setCountry(request.getParameter("country"));
+			editUser.setEmail(request.getParameter("person_email"));
+			editUser.setCompanyname(request.getParameter("person_company"));
+			editUser.setCompanylocation(request.getParameter("person_clocation"));
+			editUser.setCompanyservices(request.getParameter("person_cservices"));
+			editUser.setRole(request.getParameter("role"));
+			editUser.setAccounttype(request.getParameter("accounttype"));
+			personDao.insertPerson(editUser);
+			//Return back to viewprofile
+			return "redirect:/profile/"+userid;
+		}
+
+		PersonEntity user = personDao.getUserById(userid);
+		model.addAttribute("person", user);
+		return "editprofile";
 	}
 
 	//Had to put the same function here for the registration page that goes from this controller.

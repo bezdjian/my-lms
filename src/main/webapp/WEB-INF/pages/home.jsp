@@ -16,23 +16,19 @@
 
                         <div class="panel-body">
                             <div class="container-fluid">
-
-
-                                <div class="row">
-                                    <c:forEach var="course" items="${personCourses}">
-                                        <div class="col-xs-6 coursebox">
-                                            <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
-                                                    ${course.coursename}
-                                            </a>
-                                            <div>
-                                                    ${course.description}
-                                            </div>
+                                <c:forEach var="course" items="${personCourses}">
+                                    <div class="coursebox">
+                                        <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
+                                                ${course.coursename}
+                                        </a>
+                                        <div>
+                                                ${course.description}
                                         </div>
-                                    </c:forEach>
-                                </div>
+                                    </div>
+                                </c:forEach>
                             </div>
 
-                            <hr>
+                            <div style="height: 5px;margin: 1em;"></div>
 
                             <div class="container-fluid">
                                 <h4>Products</h4>

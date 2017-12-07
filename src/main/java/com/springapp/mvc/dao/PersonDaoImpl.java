@@ -4,6 +4,7 @@ import com.springapp.mvc.domain.Login;
 import com.springapp.mvc.domain.PersonEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,6 +46,7 @@ public class PersonDaoImpl implements PersonDao {
         return users.size() > 0 ? users.get(0) : null;
     }
 
+    //This is used for the AJAX call function.
     @Transactional
     @Override
     public PersonEntity getUserInfo(String username, String password){
@@ -70,6 +72,7 @@ public class PersonDaoImpl implements PersonDao {
         return users;
     }
 
+    @Transactional
     @Override
     public List<PersonEntity> getAllUnerolledUsers(int courseid) {
         List<PersonEntity> users = jdbcTemplate.query("SELECT * FROM person WHERE id NOT IN (SELECT personid FROM personcourse WHERE courseid = " +courseid+ ")",
@@ -78,5 +81,13 @@ public class PersonDaoImpl implements PersonDao {
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));
         return users;
+    }
+
+    @Transactional
+    @Override
+    public PersonEntity getUserById(int userid) {
+        String sql1 = "SELECT * FROM person WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql1, new Object[]{userid}, new BeanPropertyRowMapper<>(PersonEntity.class));
+        //return user.size() > 0 ? user.get(0) : new PersonEntity();
     }
 }
