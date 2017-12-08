@@ -105,35 +105,9 @@
 
                 <c:if test="${person.role == 'admin'}">
                     <div class="col-sm-3">
-                        <div class="block course_admin_block">
-                            <h5>Administration</h5>
+                        <div class="block some-admin-block">
+                            <h5>...</h5>
 
-                            <div>
-                                <a href="${contextPath}/view_editcourse/${course.id}/edit">
-                                    <label class="icon">
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                    </label>
-                                    Edit course
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="${contextPath}/enroltocourse/${course.id}/enrol">
-                                    <label class="icon">
-                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                    </label>
-                                    Enrol user
-                                </a>
-                            </div>
-
-                            <div>
-                                <a href="${contextPath}/delete/course/${course.id}">
-                                    <label class="icon">
-                                        <i class="fa fa-remove" aria-hidden="true"></i>
-                                    </label>
-                                    Delete course
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </c:if>

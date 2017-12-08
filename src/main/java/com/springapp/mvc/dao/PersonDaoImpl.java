@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by bezdj on 04/02/2017.
@@ -89,5 +90,14 @@ public class PersonDaoImpl implements PersonDao {
         String sql1 = "SELECT * FROM person WHERE id = ?";
         return jdbcTemplate.queryForObject(sql1, new Object[]{userid}, new BeanPropertyRowMapper<>(PersonEntity.class));
         //return user.size() > 0 ? user.get(0) : new PersonEntity();
+    }
+
+    @Transactional
+    @Override
+    public List<Map<String,Object>> getUserReports() {
+        String sql = "SELECT p.*, c.coursename, pc.enrolldate, pc.enddate, pc.startdate FROM person p\n" +
+                "join personcourse pc on pc.personid = p.id " +
+                "join course c on c.id = pc.courseid";
+        return jdbcTemplate.queryForList(sql);
     }
 }

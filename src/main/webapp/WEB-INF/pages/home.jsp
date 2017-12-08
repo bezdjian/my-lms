@@ -57,6 +57,23 @@
                 </div>
 
                 <!-- Right side block -->
+                <c:if test="${person.role == 'admin'}">
+                    <div class="col-sm-3">
+                        <div class="block reports-block">
+                            <h5>Reports</h5>
+
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="${contextPath}/reports/users"/>">
+                                    User reports
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+
                 <div class="col-sm-3">
                     <div class="block company_info_block">
                         <h5>Company Information</h5>

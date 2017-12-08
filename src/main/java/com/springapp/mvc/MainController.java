@@ -129,6 +129,23 @@ public class MainController {
 		return "editprofile";
 	}
 
+	@RequestMapping(value = "/reports/{type}")
+	public String showUserReports(HttpServletRequest request, @PathVariable("type") String type,
+								  Model model){
+		//type is the report type, users, courses etx...
+
+		if(type.equals("users")){
+			//get report for users
+			List userReport = personDao.getUserReports();
+			model.addAttribute("adminReport", userReport);
+		}else if(type.equals("courses")){
+			//get report for courses
+		}
+
+		//sending to page reports, but model.addAttribute differs by the type
+		return "reports";
+	}
+
 	//Had to put the same function here for the registration page that goes from this controller.
 	@ModelAttribute("countryNames")
 	public Map<String,String> populateCountryNames() {

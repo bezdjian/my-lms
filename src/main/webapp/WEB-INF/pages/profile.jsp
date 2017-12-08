@@ -65,7 +65,7 @@
                 <c:if test="${person.role == 'admin'}">
                     <div class="col-sm-3">
                         <div class="block some-block">
-
+                            <h5>...</h5>
                         </div>
                     </div>
                 </c:if>

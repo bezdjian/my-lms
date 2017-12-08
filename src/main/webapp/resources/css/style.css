@@ -34,7 +34,6 @@ h5 {
 
 p {
     font-size: 12px;
-    width: 150px;
     display: inline-block;
     margin-left: 18px;
     font-family: 'Open Sans', sans-serif;
@@ -867,6 +866,12 @@ body {
     background-color: #191919;
     margin: 0;
     border: 0;
+}
+
+.user-courses-report{
+    float: left;
+    padding: 0 20px 20px 0;
+    width: 90%;
 }
 
 /*EO: JQUERY UI OVERRIDE*/
