@@ -44,7 +44,7 @@
                                 </c:forEach>
 
                                     <div class="form-group">
-                                        <a href="<c:url value="${contextPath}/downloadCSV/usercourses"/>" class="btn btn-primary">Download as Excel (CSV)</a>
+                                        <a href="<c:url value="/downloadCSV/usercourses"/>" class="btn btn-primary">Download as Excel (CSV)</a>
                                     </div>
                                 </div>
                             </c:if>
@@ -79,6 +79,55 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Right side block -->
+                <c:if test="${person.role == 'admin'}">
+                    <div class="col-sm-3">
+                        <div class="block admin-block">
+                            <h5>Administration</h5>
+                            <p>Reports</p>
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="/reports/usercourses"/>">
+                                    User Courses reports
+                                </a>
+                            </div>
+
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="/reports/users"/>">
+                                    Users Report
+                                </a>
+                            </div>
+
+                            <hr>
+                            <p>Other stuff</p>
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-file-video-o" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="/reports/usercourses"/>">
+                                    stuff1
+                                </a>
+                            </div>
+
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-viacoin" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="/reports/users"/>">
+                                    stuff2
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </c:if>
 
                 <div class="col-sm-3">
                     <div class="block company_info_block">

@@ -66,7 +66,7 @@
                                 <label class="icon">
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </label>
-                                <a href="<c:url value="${contextPath}/reports/usercourses"/>">
+                                <a href="<c:url value="/reports/usercourses"/>">
                                     User Courses reports
                                 </a>
                             </div>
@@ -75,7 +75,7 @@
                                 <label class="icon">
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </label>
-                                <a href="<c:url value="${contextPath}/reports/users"/>">
+                                <a href="<c:url value="/reports/users"/>">
                                     Users Report
                                 </a>
                             </div>
@@ -86,7 +86,7 @@
                                 <label class="icon">
                                     <i class="fa fa-file-video-o" aria-hidden="true"></i>
                                 </label>
-                                <a href="<c:url value="${contextPath}/reports/usercourses"/>">
+                                <a href="<c:url value="/reports/usercourses"/>">
                                     stuff1
                                 </a>
                             </div>
@@ -95,7 +95,7 @@
                                 <label class="icon">
                                     <i class="fa fa-viacoin" aria-hidden="true"></i>
                                 </label>
-                                <a href="<c:url value="${contextPath}/reports/users"/>">
+                                <a href="<c:url value="/reports/users"/>">
                                     stuff2
                                 </a>
                             </div>
