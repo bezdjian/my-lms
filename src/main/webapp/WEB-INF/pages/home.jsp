@@ -59,17 +59,48 @@
                 <!-- Right side block -->
                 <c:if test="${person.role == 'admin'}">
                     <div class="col-sm-3">
-                        <div class="block reports-block">
-                            <h5>Reports</h5>
+                        <div class="block admin-block">
+                            <h5>Administration</h5>
+                            <p>Reports</p>
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="${contextPath}/reports/usercourses"/>">
+                                    User Courses reports
+                                </a>
+                            </div>
 
                             <div>
                                 <label class="icon">
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </label>
                                 <a href="<c:url value="${contextPath}/reports/users"/>">
-                                    User reports
+                                    Users Report
                                 </a>
                             </div>
+
+                            <hr>
+                            <p>Other stuff</p>
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-file-video-o" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="${contextPath}/reports/usercourses"/>">
+                                    stuff1
+                                </a>
+                            </div>
+
+                            <div>
+                                <label class="icon">
+                                    <i class="fa fa-viacoin" aria-hidden="true"></i>
+                                </label>
+                                <a href="<c:url value="${contextPath}/reports/users"/>">
+                                    stuff2
+                                </a>
+                            </div>
+
+
                         </div>
                     </div>
                 </c:if>

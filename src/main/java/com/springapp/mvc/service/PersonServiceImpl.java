@@ -3,6 +3,7 @@ package com.springapp.mvc.service;
 import com.springapp.mvc.dao.PersonDao;
 import com.springapp.mvc.domain.Login;
 import com.springapp.mvc.domain.PersonEntity;
+import com.springapp.mvc.domain.UserReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +49,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List getUserReports() {
+    public List<UserReport> getUserReports() {
         return personDao.getUserReports();
     }
 }

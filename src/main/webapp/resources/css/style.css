@@ -874,6 +874,13 @@ body {
     width: 90%;
 }
 
+.report-course-name{
+    padding: 5px 16px;
+}
+.report-user-name{
+
+}
+
 /*EO: JQUERY UI OVERRIDE*/
 
 @media (max-width: 1180px) {

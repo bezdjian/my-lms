@@ -2,6 +2,7 @@ package com.springapp.mvc.dao;
 
 import com.springapp.mvc.domain.Login;
 import com.springapp.mvc.domain.PersonEntity;
+import com.springapp.mvc.domain.UserReport;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -94,10 +95,13 @@ public class PersonDaoImpl implements PersonDao {
 
     @Transactional
     @Override
-    public List<Map<String,Object>> getUserReports() {
-        String sql = "SELECT p.*, c.coursename, pc.enrolldate, pc.enddate, pc.startdate FROM person p\n" +
-                "join personcourse pc on pc.personid = p.id " +
-                "join course c on c.id = pc.courseid";
-        return jdbcTemplate.queryForList(sql);
+    public List<UserReport> getUserReports() {
+        String sql = "SELECT p.id as personid, p.fullname, p.role, c.coursename, pc.enddate, pc.enrolldate, pc.startdate " +
+                "FROM person p " +
+                "JOIN personcourse pc on pc.personid = p.id " +
+                "JOIN course c on c.id = pc.courseid " +
+                "ORDER BY pc.enrolldate";
+        return jdbcTemplate.query(sql, (rs, rowNum)->new UserReport(rs.getInt("personid"), rs.getString("fullname"), rs.getString("role"), rs.getString("coursename"),
+                rs.getString("enddate"), rs.getString("enrolldate"), rs.getString("startdate")));
     }
 }

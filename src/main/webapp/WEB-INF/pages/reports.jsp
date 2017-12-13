@@ -22,31 +22,61 @@
                         </div>
 
                         <div>
-                            <c:forEach var="report" items="${adminReport}">
-
-                                <div class="person-product-container">
-                                    <div class="product-image">
-                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                                        ${report.fullname}
-                                    </div>
-                                    <div class="user-courses-report">
-                                        <p>Courses</p>
-                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                                ${report.coursename}
-                                        <div>
-
+                            <c:if test="${userCoursesReport != null}">
+                                <div>
+                                <c:forEach var="report" items="${userCoursesReport}">
+                                    <div class="person-product-container">
+                                        <div class="product-image">
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                            <a href="<c:url value="/profile/${report.personid}" />" class="report-user-name">
+                                                <span>${report.fullname}, ${report.role}</span>
+                                            </a>
+                                        </div>
+                                        <div class="user-courses-report">
+                                            <div class="report-course-name">
+                                                Course: ${report.coursename}
+                                            </div>
+                                            <div class="report-course-name">
+                                                Enrolled: ${report.enrolldate}
+                                            </div>
                                         </div>
                                     </div>
+                                </c:forEach>
+
+                                    <div class="form-group">
+                                        <a href="<c:url value="${contextPath}/downloadCSV/usercourses"/>" class="btn btn-primary">Download as Excel (CSV)</a>
+                                    </div>
                                 </div>
+                            </c:if>
 
+                            <c:if test="${userReport != null}">
+                                <div>
+                                <c:forEach var="report" items="${userReport}">
+                                    <div class="person-product-container">
+                                        <div class="product-image">
+                                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                            <a href="<c:url value="/profile/${report.id}" />" class="report-user-name">
+                                                <span>${report.firstname} ${report.lastname}, ${report.role}</span>
+                                            </a>
+                                        </div>
+                                        <div class="user-courses-report">
+                                            <div class="report-course-name">
+                                                Email: ${report.email}
+                                            </div>
+                                            <div class="report-course-name">
+                                                Country: ${report.country}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
 
-                            </c:forEach>
+                                    <div class="form-group">
+                                        <a href="<c:url value="${contextPath}/downloadCSV/users"/>" class="btn btn-primary">Download as Excel (CSV)</a>
+                                    </div>
+                                </div>
+                            </c:if>
+
                         </div>
-                        <c:if test="${person.role == 'admin'}">
-                            <div class="form-group">
-                                <a href="<c:url value="/view_editcourse/0/edit"/>" class="btn btn-primary">Add</a>
-                            </div>
-                        </c:if>
                     </div>
                 </div>
 

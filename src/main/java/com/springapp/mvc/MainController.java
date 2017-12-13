@@ -1,11 +1,8 @@
 package com.springapp.mvc;
 
 import com.springapp.mvc.dao.*;
-import com.springapp.mvc.domain.CourseEntity;
-import com.springapp.mvc.domain.PersonCourseEntity;
-import com.springapp.mvc.domain.PersonEntity;
+import com.springapp.mvc.domain.*;
 
-import com.springapp.mvc.domain.ProductEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -14,17 +11,16 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.LinkedCaseInsensitiveMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @Scope("session")
@@ -134,16 +130,79 @@ public class MainController {
 								  Model model){
 		//type is the report type, users, courses etx...
 
-		if(type.equals("users")){
+		if(type.equals("usercourses")){
 			//get report for users
-			List userReport = personDao.getUserReports();
-			model.addAttribute("adminReport", userReport);
+			List userCoursesReport = personDao.getUserReports();
+			model.addAttribute("userCoursesReport", userCoursesReport);
+		}else if(type.equals("users")){
+			//get report for users only
+			List userReport = personDao.getAllUsers();
+			model.addAttribute("userReport", userReport);
 		}else if(type.equals("courses")){
 			//get report for courses
 		}
 
 		//sending to page reports, but model.addAttribute differs by the type
 		return "reports";
+	}
+
+	@RequestMapping(value = "/downloadCSV/{type}")
+	public void downloadCSV(HttpServletResponse response, @PathVariable("type") String reportType) throws IOException {
+
+		String reportName = "";
+		if(reportType.equals("usercourses")){
+			reportName = "UserCourses_Report.csv";
+			ArrayList<String> rows = new ArrayList<String>();
+			//Add headers
+			rows.add("ID, Full name, Role, Course name, End date, Enrol date, Start date");
+			rows.add("\n");
+
+			List<UserReport> report = personDao.getUserReports();
+
+			//First add them to list of rows
+			for(int i=0; i<report.size(); i++){
+				UserReport reportRow = report.get(i);
+				rows.add(reportRow.getPersonid()+","+reportRow.getFullname()+","+reportRow.getRole()+","+reportRow.getCoursename()+","+reportRow.getEnddate()+","+reportRow.getEnrolldate()+","+reportRow.getStartdaate());
+				rows.add("\n");
+			}
+
+			//Now insert each rows to output.
+			Iterator<String> iter = rows.iterator();
+			while (iter.hasNext()) {
+				String outputString = (String) iter.next();
+				response.getOutputStream().print(outputString);
+			}
+
+		}else if(reportType.equals("users")){
+			reportName = "User_Report.csv";
+			ArrayList<String> rows = new ArrayList<String>();
+			//Add headers
+			rows.add("ID, Full name, Role, Email, Country");
+			rows.add("\n");
+
+			List<PersonEntity> report = personDao.getAllUsers();
+
+			//First add them to list of rows
+			for(int i=0; i<report.size(); i++){
+				PersonEntity reportRow = report.get(i);
+				rows.add(reportRow.getId()+","+reportRow.getFirstname()+" "+reportRow.getLastname()+","+reportRow.getRole()+","+reportRow.getEmail()+","+reportRow.getCountry());
+				rows.add("\n");
+			}
+
+			//Now insert each rows to output.
+			Iterator<String> iter = rows.iterator();
+			while (iter.hasNext()) {
+				String outputString = (String) iter.next();
+				response.getOutputStream().print(outputString);
+			}
+
+		}
+
+		response.setContentType("text/csv");
+		response.setHeader("Content-disposition", "attachment;filename="+reportName);
+
+		response.getOutputStream().flush();
+
 	}
 
 	//Had to put the same function here for the registration page that goes from this controller.
