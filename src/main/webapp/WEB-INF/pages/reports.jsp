@@ -71,7 +71,7 @@
                                 </c:forEach>
 
                                     <div class="form-group">
-                                        <a href="<c:url value="${contextPath}/downloadCSV/users"/>" class="btn btn-primary">Download as Excel (CSV)</a>
+                                        <a href="<c:url value="/downloadCSV/users"/>" class="btn btn-primary">Download as Excel (CSV)</a>
                                     </div>
                                 </div>
                             </c:if>
