@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div id="dialog" title="Confirmation Required">
     Are you sure?
@@ -145,4 +145,4 @@
             </div>
         </div>
     </div>
-    <%@include file="footer.jsp"%>
+    <%@include file="includes/footer.jsp"%>

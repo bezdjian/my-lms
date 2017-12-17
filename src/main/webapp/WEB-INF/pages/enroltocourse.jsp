@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
@@ -117,4 +117,4 @@
         </div>
     </div>
 
-    <%@include file="footer.jsp"%>
+    <%@include file="includes/footer.jsp"%>

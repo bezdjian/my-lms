@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@include file="header.jsp"%>
+<%@include file="includes/header.jsp"%>
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
         <div id="header-content" style="border: 1px solid #efefef">
@@ -103,42 +103,10 @@
                     </div>
                 </div>
 
-                <c:if test="${person.role == 'admin'}">
-                    <div class="col-sm-3">
-                        <div class="block some-admin-block">
-                            <h5>...</h5>
-
-                        </div>
-                    </div>
-                </c:if>
-                <div class="col-sm-3">
-                    <div class="block company_info_block">
-                        <h5>Company Information</h5>
-
-                        <div>
-                            <label class="icon" for="companyName">
-                                <i class="fa fa-building-o" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyName">Company: ${person.companyname}</p>
-                        </div>
-
-                        <div>
-                            <label class="icon" for="companyLocation">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyLocation">Location: ${person.companylocation}</p>
-                        </div>
-
-                        <div>
-                            <label class="icon" for="companyServices">
-                                <i class="fa fa-server" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyServices">Services: ${person.companyservices}</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Right side block -->
+                <%@include file="includes/blocks.jsp"%>
             </div>
         </div>
     </div>
 
-    <%@include file="footer.jsp"%>
+    <%@include file="includes/footer.jsp"%>

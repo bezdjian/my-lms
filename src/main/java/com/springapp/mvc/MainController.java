@@ -6,6 +6,7 @@ import com.springapp.mvc.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 
@@ -97,7 +98,8 @@ public class MainController {
 
 	@RequestMapping("/editprofile/{userid}/{edit}")
 	public String userProfileEdit(HttpServletRequest request, Model model,
-							  @PathVariable("userid") int userid, @PathVariable("edit") String edit){
+							  @PathVariable("userid") int userid, @PathVariable("edit") String edit,
+								  @ModelAttribute("adduser") PersonEntity adduser){
 
 		if(edit.equals("doedit")){
 			//Edit person from form.
@@ -118,6 +120,11 @@ public class MainController {
 			personDao.insertPerson(editUser);
 			//Return back to viewprofile
 			return "redirect:/profile/"+userid;
+		}else if(edit.equals("doadd")){
+			System.out.println("NEW USER: " + adduser.getFirstname());
+			personDao.insertPerson(adduser);
+			//Return back to all users
+			return "redirect:/allusers";
 		}
 
 		PersonEntity user = personDao.getUserById(userid);
@@ -203,6 +210,20 @@ public class MainController {
 
 		response.getOutputStream().flush();
 
+	}
+
+	@RequestMapping(value = "/allusers")
+	public String allUsers(HttpServletRequest request, Model model){
+		List<PersonEntity> allusers = personDao.getAllUsers();
+		model.addAttribute("allusers", allusers);
+		return "allusers";
+	}
+
+	@RequestMapping(value = "/adduser")
+	public String addUser(HttpServletRequest request, Model model){
+		PersonEntity adduser = new PersonEntity();
+		model.addAttribute("adduser", adduser);
+		return "adduser";
 	}
 
 	//Had to put the same function here for the registration page that goes from this controller.

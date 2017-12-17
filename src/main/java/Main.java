@@ -1,3 +1,5 @@
+import com.springapp.mvc.dao.PersonDao;
+import com.springapp.mvc.domain.PersonEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -6,6 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.service.ServiceRegistry;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
@@ -15,10 +18,13 @@ import java.util.Map;
 public class Main {
     private static SessionFactory sessionFactory;
 
+    @Autowired
+    private static PersonDao personDao;
+
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("/resources/hibernate.cfg.xml");
+            configuration.configure("hibernate.cfg.xml");
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
                     configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);

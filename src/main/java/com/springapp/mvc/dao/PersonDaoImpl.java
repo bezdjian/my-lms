@@ -88,9 +88,14 @@ public class PersonDaoImpl implements PersonDao {
     @Transactional
     @Override
     public PersonEntity getUserById(int userid) {
-        String sql1 = "SELECT * FROM person WHERE id = ?";
-        return jdbcTemplate.queryForObject(sql1, new Object[]{userid}, new BeanPropertyRowMapper<>(PersonEntity.class));
-        //return user.size() > 0 ? user.get(0) : new PersonEntity();
+        String sql1 = "SELECT * FROM person WHERE id = "+ userid;
+        //return jdbcTemplate.queryForObject(sql1, new Object[]{userid}, new BeanPropertyRowMapper<>(PersonEntity.class));
+        List<PersonEntity> user = jdbcTemplate.query(sql1,
+                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                        rs.getString("country"), rs.getString("email"), rs.getString("gender"),
+                        rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
+                        rs.getString("companyservices"), rs.getString("role")));
+        return user.size() > 0 ? user.get(0) : new PersonEntity();
     }
 
     @Transactional

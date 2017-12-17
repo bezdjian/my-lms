@@ -149,9 +149,8 @@ input[type=radio]:checked + label:after {
 }
 
 hr {
-    color: #a9a9a9;
     opacity: 0.3;
-    border-color: #000;
+    border-color: #ccc;
     margin: 5px 0 5px;
 }
 

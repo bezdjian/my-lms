@@ -1,4 +1,4 @@
-<%@include file="header.jsp"%>
+<%@include file="includes/header.jsp"%>
 
 <div id="container" class="container-fluid">
     <div id="page" class="panel panel-default">
@@ -8,7 +8,7 @@
                 <div class="col-sm-9">
 
                     <div class="panel">
-                        <div class="panel-heading">
+                        <div class="panel panel-heading">
                             <div id="welcome-panel" class="welcome-panelsss">
                                 <h4>Welcome  ${person.firstname} ${person.lastname}!</h4>
                             </div>
@@ -57,82 +57,9 @@
                 </div>
 
                 <!-- Right side block -->
-                <c:if test="${person.role == 'admin'}">
-                    <div class="col-sm-3">
-                        <div class="block admin-block">
-                            <h5>Administration</h5>
-                            <p>Reports</p>
-                            <div>
-                                <label class="icon">
-                                    <i class="fa fa-list" aria-hidden="true"></i>
-                                </label>
-                                <a href="<c:url value="/reports/usercourses"/>">
-                                    User Courses reports
-                                </a>
-                            </div>
-
-                            <div>
-                                <label class="icon">
-                                    <i class="fa fa-list" aria-hidden="true"></i>
-                                </label>
-                                <a href="<c:url value="/reports/users"/>">
-                                    Users Report
-                                </a>
-                            </div>
-
-                            <hr>
-                            <p>Other stuff</p>
-                            <div>
-                                <label class="icon">
-                                    <i class="fa fa-file-video-o" aria-hidden="true"></i>
-                                </label>
-                                <a href="<c:url value="/reports/usercourses"/>">
-                                    stuff1
-                                </a>
-                            </div>
-
-                            <div>
-                                <label class="icon">
-                                    <i class="fa fa-viacoin" aria-hidden="true"></i>
-                                </label>
-                                <a href="<c:url value="/reports/users"/>">
-                                    stuff2
-                                </a>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </c:if>
-
-                <div class="col-sm-3">
-                    <div class="block company_info_block">
-                        <h5>Company Information</h5>
-
-                        <div>
-                            <label class="icon" for="companyName">
-                                <i class="fa fa-building-o" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyName">Company: ${person.companyname}</p>
-                        </div>
-
-                        <div>
-                            <label class="icon" for="companyLocation">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyLocation">Location: ${person.companylocation}</p>
-                        </div>
-
-                        <div>
-                            <label class="icon" for="companyServices">
-                                <i class="fa fa-server" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyServices">Services: ${person.companyservices}</p>
-                        </div>
-                    </div>
-                </div>
+                <%@include file="includes/blocks.jsp"%>
             </div>
         </div>
     </div>
 </div>
-<%@include file="footer.jsp"%>
+<%@include file="includes/footer.jsp"%>
