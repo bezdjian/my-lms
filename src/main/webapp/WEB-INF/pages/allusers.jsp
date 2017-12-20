@@ -51,6 +51,7 @@
                     <c:if test="${person.role == 'admin'}">
                         <div class="form-group">
                             <a href="<c:url value="${contextPath}/adduser"/>" class="btn btn-primary">Add new user</a>
+                            <a href="<c:url value="/downloadCSV/users"/>" class="btn btn-primary">Download as Excel (CSV)</a>
                         </div>
                     </c:if>
                 </div>
