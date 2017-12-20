@@ -14,10 +14,10 @@
 
             <div>
                 <label class="icon">
-                    <i class="fa fa-viacoin" aria-hidden="true"></i>
+                    <i class="fa fa-upload" aria-hidden="true"></i>
                 </label>
-                <a href="<c:url value=""/>">
-                    stuff2
+                <a href="<c:url value="/uploadUsersForm"/>">
+                    Upload users
                 </a>
             </div>
 

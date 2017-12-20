@@ -1,5 +1,6 @@
 package com.springapp.mvc;
 
+import au.com.bytecode.opencsv.CSVReader;
 import com.springapp.mvc.dao.*;
 import com.springapp.mvc.domain.*;
 
@@ -14,12 +15,13 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.LinkedCaseInsensitiveMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Statement;
 import java.util.*;
 
@@ -217,6 +219,86 @@ public class MainController {
 		List<PersonEntity> allusers = personDao.getAllUsers();
 		model.addAttribute("allusers", allusers);
 		return "allusers";
+	}
+
+	//Dont know, should be another way than this.
+	@RequestMapping(value = "/uploadUsersForm")
+	public String uploadUsers(HttpServletRequest request, Model model){
+		return "uploadUsers";
+	}
+
+	@RequestMapping(value = "/uploadUsers")
+	public String uploadUsers(HttpServletRequest request, Model model, @RequestParam("userCSV") MultipartFile file){
+		System.out.println("FILE NAME: " + file.getOriginalFilename());
+		if (file.isEmpty()) {
+			model.addAttribute("error_msg", "failed to upload file because its empty");
+			System.out.println("----------------failed to upload file because its empty");
+			return "uploadUsers";
+		}
+
+		//Saves the file under /target/myLMS/uploadedfile
+		String rootPath = request.getSession().getServletContext().getRealPath("/");
+		File dir = new File(rootPath + File.separator + "uploadedfile");
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
+
+		File serverFile = new File(dir.getAbsolutePath() + File.separator + file.getOriginalFilename());
+
+		try {
+			try (InputStream is = file.getInputStream();
+				 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile))) {
+				int i;
+				//write file to server
+				while ((i = is.read()) != -1) {
+					stream.write(i);
+				}
+				stream.flush();
+			}
+		} catch (IOException e) {
+			model.addAttribute("error_msg", "failed to process file because : " + e.getMessage());
+			e.printStackTrace();
+			return "uploadUsers";
+		}
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(serverFile));
+			String line = "";
+			int iter = 0;
+			while((line = br.readLine()) != null){
+				if(iter == 0){
+					iter++;
+				}else{
+					try{
+						String[] values = line.split(",");
+						PersonEntity newuser = new PersonEntity();
+						newuser.setUsername(values[0]);
+						newuser.setEmail(values[2]);
+						newuser.setFirstname(values[3]);
+						newuser.setLastname(values[4]);
+						newuser.setCountry("Sweden");
+						newuser.setCompanyname("SIDA");
+
+						//Insert the newuser
+						personDao.insertPerson(newuser);
+					}catch (ArrayIndexOutOfBoundsException ae){
+						System.out.println("ArrayIndexOutOfBoundsException: " + ae.getMessage());
+						model.addAttribute("error_msg", "Value was not found on column number " + ae.getMessage());
+						ae.printStackTrace();
+						return "uploadUsers";
+					}
+				}
+			}
+
+
+		} catch (IOException e) {
+			System.out.println("error while reading csv and put to db : " + e.getMessage());
+			model.addAttribute("error while reading csv and put to db : " + e.getMessage());
+			return "uploadUsers";
+		}
+
+		model.addAttribute("success_msg", "success upload and process file");
+		return "uploadUsers";
 	}
 
 	@RequestMapping(value = "/adduser")
