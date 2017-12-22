@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
+import java.sql.Types;
 import java.util.List;
 import java.util.Map;
 
@@ -96,6 +97,15 @@ public class PersonDaoImpl implements PersonDao {
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));
         return user.size() > 0 ? user.get(0) : new PersonEntity();
+    }
+
+
+    @Override
+    public void removeUser(int userid) {
+        Object[] params = { userid };
+        // define SQL types of the arguments
+        int[] types = {Types.BIGINT};
+        jdbcTemplate.update("DELETE FROM person WHERE id = ?", params, types);
     }
 
     @Transactional

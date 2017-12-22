@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+import java.io.*;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,6 +85,10 @@ public class CourseController {
 				if (!new File(realPathtoUploads).exists()) {
 					new File(realPathtoUploads).mkdir();
 				}
+
+				//Get the image from server
+				File serverFile = new File(realPathtoUploads + image.getOriginalFilename());
+				System.out.println("IMAGE SERVERFILE: " + serverFile.getPath());
 
 				String orgName = image.getOriginalFilename();
 				String filePath = realPathtoUploads + File.separator + orgName;

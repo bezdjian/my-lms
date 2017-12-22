@@ -29,6 +29,7 @@
                                    <th>Email</th>
                                    <th>Country</th>
                                    <th>Company</th>
+                                   <th>Action</th>
                                </tr>
                                </thead>
                                <tbody>
@@ -42,6 +43,14 @@
                                        <td>${user.email}</td>
                                        <td>${user.country}</td>
                                        <td>${user.companyname}</td>
+                                       <td>
+                                           <a href="/editprofile/${user.id}/preedit">
+                                               <i class="fa fa-edit" aria-hidden="true"></i>
+                                           </a>
+                                           <a href="/delete/${user.id}">
+                                               <i class="fa fa-remove" aria-hidden="true"></i>
+                                           </a>
+                                       </td>
                                    </tr>
                                </c:forEach>
                                </tbody>
@@ -50,8 +59,27 @@
                     </div>
                     <c:if test="${person.role == 'admin'}">
                         <div class="form-group">
-                            <a href="<c:url value="${contextPath}/adduser"/>" class="btn btn-primary">Add new user</a>
-                            <a href="<c:url value="/downloadCSV/users"/>" class="btn btn-primary">Download as Excel (CSV)</a>
+                            <a href="<c:url value="${contextPath}/adduser"/>" class="btn btn-primary">
+                                <i class="fa fa-plus-square">
+                                    <label>Add new user</label>
+                                </i>
+                            </a>
+                            <a href="<c:url value="/downloadCSV/users"/>" class="btn btn-primary">
+                                <i class="fa fa-download">
+                                    <label>Download as Excel (CSV)</label>
+                                </i>
+                            </a>
+                            <a href="<c:url value="/uploadUsersForm"/>" class="btn btn-primary">
+                                <i class="fa fa-upload">
+                                    <label>Upload users CSV</label>
+                                </i>
+                            </a>
+                            <c:if test="${delete_msg != null}">
+                                <p class="alert alert-success">
+                                    ${delete_msg}
+                                </p>
+                            </c:if>
+
                         </div>
                     </c:if>
                 </div>

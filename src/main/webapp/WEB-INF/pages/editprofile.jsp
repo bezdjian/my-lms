@@ -95,7 +95,11 @@
                                     </div>
 
                                         <div class="form-group">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa fa-send">
+                                                        <label>Submit</label>
+                                                    </i>
+                                                </button>
                                         </div>
                                 </div>
                             </div>

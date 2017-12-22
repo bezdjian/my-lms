@@ -107,8 +107,12 @@
                                     </div>
                                 </div>
                                 <c:if test="${person.role == 'admin'}">
-                                    <div class="form-group row">
-                                        <a href="<c:url value="/view_editproduct/0/edit"/>" class="btn btn-primary">Add</a>
+                                    <div class="form-group">
+                                        <a href="<c:url value="/view_editproduct/0/edit"/>" class="btn btn-primary">
+                                            <i class="fa fa-plus-square">
+                                                <label>Add</label>
+                                            </i>
+                                        </a>
                                     </div>
                                 </c:if>
                             </div>

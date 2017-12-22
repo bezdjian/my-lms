@@ -49,8 +49,13 @@ h1 {
     font-family: 'Open Sans', sans-serif;
 }
 
-div, h4, span, p, input, select, h2, h3, h4, h5 {
+div, h4, span, p, input, select, h2, h3, h4, h5, label {
     font-family: 'Open Sans', sans-serif;
+}
+
+label{
+    font-size: 14px;
+    font-weight:normal;
 }
 
 .container-fluid {

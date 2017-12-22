@@ -20,6 +20,7 @@ public interface PersonDao {
     List<PersonEntity> getAllUnerolledUsers(int courseid);
     PersonEntity getUserById(int userid);
 
+    void removeUser(int userid);
     //reports, users with courses
     List<UserReport> getUserReports();
 }

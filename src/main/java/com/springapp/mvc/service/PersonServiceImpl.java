@@ -49,6 +49,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public void removeUser(int userid) {
+        personDao.removeUser(userid);
+    }
+
+    @Override
     public List<UserReport> getUserReports() {
         return personDao.getUserReports();
     }

@@ -47,15 +47,8 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </c:forEach>
                         </div>
-                        <c:if test="${person.role == 'admin'}">
-                            <div class="form-group">
-                                <a href="<c:url value="/view_editcourse/0/edit"/>" class="btn btn-primary">Add</a>
-                            </div>
-                        </c:if>
                     </div>
                 </div>
 
