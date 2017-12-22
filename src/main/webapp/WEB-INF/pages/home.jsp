@@ -19,7 +19,7 @@
                                 <c:forEach var="course" items="${personCourses}">
                                     <div class="coursebox">
                                         <div class="course_image">
-                                            <img src="/resources/uploads/${course.courseimage}"/>
+                                            <img src="${contextPath}/resources/uploads/${course.courseimage}"/>
                                         </div>
                                         <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
                                                 ${course.coursename}

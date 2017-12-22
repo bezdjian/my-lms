@@ -74,20 +74,24 @@ public class MainController {
 	}
 
 	@RequestMapping("/home")
-	public String printName(HttpServletRequest request, Model m, @ModelAttribute("homeview") ModelAndView mav){
-		PersonEntity personInSession = (PersonEntity) request.getSession().getAttribute("person");
-		//Reload person
-		//PersonEntity person = personDao.getUserById(personInSession.getId());
-		List<ProductEntity> personProducts = personProductDao.getAllPersonProducts(personInSession.getId());
-		List<CourseEntity> personCourses = personCourseDao.getAllPersonCourses(personInSession.getId());
+	public String homePage(HttpServletRequest request, Model m, @ModelAttribute("homeview") ModelAndView mav){
+		if(request.getSession().getAttribute("person") != null){
+			PersonEntity personInSession = (PersonEntity) request.getSession().getAttribute("person");
+			//Reload person
+			//PersonEntity person = personDao.getUserById(personInSession.getId());
+			List<ProductEntity> personProducts = personProductDao.getAllPersonProducts(personInSession.getId());
+			List<CourseEntity> personCourses = personCourseDao.getAllPersonCourses(personInSession.getId());
 
-		m.addAttribute("personProducts", personProducts);
-		m.addAttribute("personCourses", personCourses);
-		//m.addAttribute("person", person);
+			m.addAttribute("personProducts", personProducts);
+			m.addAttribute("personCourses", personCourses);
+			//m.addAttribute("person", person);
 
-		//remove message_err
-		request.getSession().setAttribute("message_err", null);
-		return "home";
+			//remove message_err
+			request.getSession().setAttribute("message_err", null);
+			return "home";
+		}
+		return "redirect:/";
+
 	}
 
 	//Had to put the same function here for the registration page that goes from this controller.
