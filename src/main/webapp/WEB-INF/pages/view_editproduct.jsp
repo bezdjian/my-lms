@@ -20,7 +20,7 @@
                                 <h4>${product.name}</h4>
                             </div>
                         </div>
-                        <form:form action="${contextPath}/editproduct/${product.id}" modelAttribute="product">
+                        <form:form action="${contextPath}/editproduct/${product.id}" modelAttribute="product" enctype="multipart/form-data">
                             <div class="panel-body">
                                 <div class="container-fluid">
                                     <div class="form-group row">
@@ -49,7 +49,11 @@
                                                 <img src="/resources/uploads/${product.image}" />
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" type="text" value="${product.image}" id="product_image" name="product_image"/>
+                                                <input class="form-control" type="file"
+                                                       value="${product.image}"
+                                                       src="${product.image}"
+                                                       id="product_image" name="product_image"/>
+                                                <label>${product.image}</label>
                                             </c:if>
 
                                         </div>
@@ -102,7 +106,18 @@
 
                                     <div class="form-group row">
                                         <c:if test="${not view}">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fa fa-save">
+                                                    <label>Save</label>
+                                                </i>
+                                            </button>
+                                        </c:if>
+                                        <c:if test="${view}">
+                                            <a class="btn btn-primary" href="/view_editproduct/${product.id}/edit">
+                                                <i class="fa fa-edit">
+                                                    <label>Edit</label>
+                                                </i>
+                                            </a>
                                         </c:if>
                                     </div>
                                 </div>

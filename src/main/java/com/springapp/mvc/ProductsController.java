@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -63,27 +64,51 @@ public class ProductsController {
 	}
 
 	@RequestMapping("/editproduct/{productid}")
-	public String editProduct(@RequestParam("product_name") String product_name, @RequestParam("product_description") String product_description,
-							  @RequestParam("product_date") String product_date, @RequestParam("product_price") double product_price,
-							  @PathVariable("productid") int productid, @RequestParam("product_price_currency") String product_price_currency,
-                              @RequestParam("product_image") String image, Model m, HttpServletRequest request){
+	public String editProduct(@PathVariable("productid") int productid, @RequestParam("product_image") MultipartFile image, Model m, HttpServletRequest request){
 
 		//Better to use insertProduct function which has saveOrUpdate in it.
 		m.addAttribute("person", request.getSession().getAttribute("person"));
-        ProductEntity product = new ProductEntity();
+		ProductEntity product = new ProductEntity();
+
+		//Course image
+		String orgName;
+		boolean imageUpdated = false;
+		if (!image.isEmpty()) {
+			imageUpdated = true;
+			try {
+				String uploadsDir = File.separator + "resources" + File.separator + "uploads";
+				String realPathtoUploads = request.getServletContext().getRealPath(uploadsDir);
+				if (!new File(realPathtoUploads).exists()) {
+					new File(realPathtoUploads).mkdir();
+				}
+
+				orgName = image.getOriginalFilename();
+				String filePath = realPathtoUploads + File.separator + orgName;
+				image.transferTo(new File(filePath));
+
+				System.out.println("filePath:--------------------- " + filePath);
+				product.setImage(orgName); // orgName
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+
+
         if(productid > 0){ //updating
             ProductEntity currentProduct = productDao.getProductById(productid);
             product.setId(productid);
-            product.setImage(currentProduct.getImage()); //For now we are not updating the image.
+            if(!imageUpdated){
+				product.setImage(currentProduct.getImage()); //For now we are not updating the image.
+			}
         }else{ // adding
-            product.setImage(image);
+
         }
 
-        product.setName(product_name);
-        product.setProduct_description(product_description);
-        product.setCreateDate(product_date);
-        product.setPrice(product_price);
-        product.setCurrency(product_price_currency);
+        product.setName(request.getParameter("product_name"));
+        product.setProduct_description(request.getParameter("product_description"));
+        product.setCreateDate(request.getParameter("product_date"));
+        product.setPrice(Double.parseDouble(request.getParameter("product_price")));
+        product.setCurrency(request.getParameter("product_price_currency"));
 
         productDao.insertProduct(product);
 		//m.addAttribute("product", product);

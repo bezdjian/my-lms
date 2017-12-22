@@ -99,7 +99,7 @@ public class CourseController {
 				e.printStackTrace();
 			}
 		}
-		//course.setCourseimage(request.getParameter("course_image")); // orgName
+
 		courseDao.insertCourse(course);
 		return "redirect:/allcourses";
 	}

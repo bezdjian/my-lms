@@ -825,6 +825,16 @@ body {
     text-align: center;
 }
 
+.course_image{
+    width: 200px;
+    float: left;
+    margin-right: 1em;
+}
+.course_image img{
+    width: 100%;
+    display: block;
+}
+
 .coursebox{
     padding: 10px;
     /* background-color: #f0e9db; */
