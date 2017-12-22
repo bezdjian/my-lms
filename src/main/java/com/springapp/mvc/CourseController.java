@@ -86,10 +86,6 @@ public class CourseController {
 					new File(realPathtoUploads).mkdir();
 				}
 
-				//Get the image from server
-				File serverFile = new File(realPathtoUploads + image.getOriginalFilename());
-				System.out.println("IMAGE SERVERFILE: " + serverFile.getPath());
-
 				String orgName = image.getOriginalFilename();
 				String filePath = realPathtoUploads + File.separator + orgName;
 				//File dest = new File(filePath);
@@ -98,7 +94,7 @@ public class CourseController {
 
 				System.out.println("filePath:--------------------- " + filePath);
 
-				course.setCourseimage(filePath); // orgName
+				course.setCourseimage(orgName); // orgName
 			}catch (Exception e){
 				e.printStackTrace();
 			}

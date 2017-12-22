@@ -26,7 +26,7 @@
 
                                 <div class="person-product-container">
                                     <div class="product-image">
-                                        <img src="${realPath}/${course.courseimage}" style="width: 65px;height: 65px;border-radius: 50%;"/>
+                                        <img src="${contextPath}/resources/uploads/${course.courseimage}" style="width: 65px;height: 65px;border-radius: 50%;"/>
                                     </div>
                                     <div class="product-info">
                                         <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
