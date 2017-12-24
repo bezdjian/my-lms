@@ -1,8 +1,8 @@
 <!-- Right side block -->
 <c:if test="${person.role == 'admin'}">
+    <div class="col-sm-3">
 
-    <c:if test="${course != null}">
-        <div class="col-sm-3">
+        <c:if test="${course != null}">
             <div class="block course_admin_block">
                 <h5>Course Administration</h5>
 
@@ -33,11 +33,9 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </c:if>
+        </c:if>
 
 
-    <div class="col-sm-3">
         <div class="block admin-block">
             <h5>Administration</h5>
             <div>
@@ -80,10 +78,8 @@
             </div>
 
         </div>
-    </div>
 </c:if>
 
-<div class="col-sm-3">
     <div class="block company_info_block">
         <h5>Company Information</h5>
 

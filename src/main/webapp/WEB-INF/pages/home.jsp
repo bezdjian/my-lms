@@ -24,6 +24,9 @@
                                         <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
                                                 ${course.coursename}
                                         </a>
+                                        <span class="product-date">
+                                                date
+                                        </span>
                                         <div>
                                                 ${course.description}
                                         </div>
