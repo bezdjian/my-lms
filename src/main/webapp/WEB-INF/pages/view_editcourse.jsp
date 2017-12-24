@@ -48,6 +48,7 @@
                                                        value="${course.courseimage}"
                                                        src="${course.courseimage}"
                                                        id="course_image" name="course_image"/>
+                                                <label>${course.courseimage}</label>
                                             </c:if>
                                         </div>
                                     </div>

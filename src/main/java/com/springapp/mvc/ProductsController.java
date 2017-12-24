@@ -64,13 +64,14 @@ public class ProductsController {
 	}
 
 	@RequestMapping("/editproduct/{productid}")
-	public String editProduct(@PathVariable("productid") int productid, @RequestParam("product_image") MultipartFile image, Model m, HttpServletRequest request){
+	public String editProduct(@PathVariable("productid") int productid,
+							  @RequestParam("product_image") MultipartFile image,
+							  Model m, HttpServletRequest request){
 
-		//Better to use insertProduct function which has saveOrUpdate in it.
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		ProductEntity product = new ProductEntity();
 
-		//Course image
+		//Product image
 		String orgName;
 		boolean imageUpdated = false;
 		if (!image.isEmpty()) {
@@ -100,8 +101,6 @@ public class ProductsController {
             if(!imageUpdated){
 				product.setImage(currentProduct.getImage()); //For now we are not updating the image.
 			}
-        }else{ // adding
-
         }
 
         product.setName(request.getParameter("product_name"));
@@ -111,7 +110,6 @@ public class ProductsController {
         product.setCurrency(request.getParameter("product_price_currency"));
 
         productDao.insertProduct(product);
-		//m.addAttribute("product", product);
 		return "redirect:/allproducts";
 	}
 

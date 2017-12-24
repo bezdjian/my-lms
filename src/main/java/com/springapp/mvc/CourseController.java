@@ -5,6 +5,7 @@ import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.dao.PersonDao;
 import com.springapp.mvc.domain.CourseEntity;
 import com.springapp.mvc.domain.PersonEntity;
+import com.springapp.mvc.domain.ProductEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.Resource;
@@ -67,18 +68,17 @@ public class CourseController {
 
 	@RequestMapping("/editcourse/{courseid}")
 	public String editCourse(@PathVariable("courseid") int courseid,
-							 @RequestParam("course_image") MultipartFile image, Model m, HttpServletRequest request){
+							 @RequestParam("course_image") MultipartFile image,
+							 Model m, HttpServletRequest request){
 
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		CourseEntity course = new CourseEntity();
 
-		course.setId(courseid);
-		course.setCoursename(request.getParameter("course_name"));
-		course.setDescription(request.getParameter("course_description"));
-		course.setIdnumber(request.getParameter("course_idnumber"));
-		course.setCategoryid(Integer.parseInt(request.getParameter("course_category")));
-
+		//Course image
+		String orgName;
+		boolean imageUpdated = false;
 		if (!image.isEmpty()) {
+			imageUpdated = true;
 			try {
 				String uploadsDir = File.separator + "resources" + File.separator + "uploads";
 				String realPathtoUploads = request.getServletContext().getRealPath(uploadsDir);
@@ -86,19 +86,29 @@ public class CourseController {
 					new File(realPathtoUploads).mkdir();
 				}
 
-				String orgName = image.getOriginalFilename();
+				orgName = image.getOriginalFilename();
 				String filePath = realPathtoUploads + File.separator + orgName;
-				//File dest = new File(filePath);
-				//FileCopyUtils.copy(image.getOriginalFilename(), dest);
 				image.transferTo(new File(filePath));
 
 				System.out.println("filePath:--------------------- " + filePath);
-
 				course.setCourseimage(orgName); // orgName
 			}catch (Exception e){
 				e.printStackTrace();
 			}
 		}
+
+		if(courseid > 0){ //updating
+			CourseEntity currentCourse = courseDao.getCourseById(courseid);
+			course.setId(courseid);
+			if(!imageUpdated){
+				course.setCourseimage(currentCourse.getCourseimage()); //For now we are not updating the image.
+			}
+		}
+
+		course.setCoursename(request.getParameter("course_name"));
+		course.setDescription(request.getParameter("course_description"));
+		course.setIdnumber(request.getParameter("course_idnumber"));
+		course.setCategoryid(Integer.parseInt(request.getParameter("course_category")));
 
 		courseDao.insertCourse(course);
 		return "redirect:/allcourses";
