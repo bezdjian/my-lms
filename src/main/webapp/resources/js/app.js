@@ -4,6 +4,7 @@ var totalPrice = 0;
 $(document).ready(function(){
    //DataTable
    $("#all-user-table").dataTable();
+   $("#all-enrolled-user-table").dataTable();
 
 
     //Slide down shopping-cart-box

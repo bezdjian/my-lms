@@ -9,7 +9,7 @@
 
                     <div class="panel">
                         <div class="panel panel-heading">
-                            <div id="welcome-panel" class="welcome-panelsss">
+                            <div id="welcome-panel">
                                 <h4>Welcome  ${person.firstname} ${person.lastname}!</h4>
                             </div>
                         </div>

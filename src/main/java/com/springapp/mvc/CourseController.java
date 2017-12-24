@@ -109,17 +109,20 @@ public class CourseController {
 								Model m, HttpServletRequest request){
 		//If userid is 'enrol', means go to enroltocourse page to choose user.
 		if(userid.contains("enrol")){
-			//Send list of users who are NOT already enrolled to this course.
-			List<PersonEntity> allusers = personDao.getAllUnerolledUsers(courseid);
+			//Send list of users who are enrolled and NOT already enrolled to this course.
+			List<PersonEntity> allUnerolledUsers = personDao.getAllUnerolledUsers(courseid);
+			List<PersonEntity> allEnrolledUsers = personDao.getAllEnrolledUsers(courseid);
 			CourseEntity course = courseDao.getCourseById(courseid);
-			m.addAttribute("allusers", allusers);
+			m.addAttribute("allUnerolledUsers", allUnerolledUsers);
+			m.addAttribute("allEnrolledUsers", allEnrolledUsers);
 			m.addAttribute("course", course);
 			m.addAttribute("person", request.getSession().getAttribute("person"));
 			return "enroltocourse";
 		}else{
 			//Enrol user to the course.
 			personCourseDao.enrolUserToCourse(courseid, Integer.parseInt(userid));
-			return "redirect:/view_editcourse/"+courseid+"/view";
+			//return "redirect:/view_editcourse/"+courseid+"/view";
+			return "redirect:/enroltocourse/"+courseid+"/enrol";
 		}
 
 	}

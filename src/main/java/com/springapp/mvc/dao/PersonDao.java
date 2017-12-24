@@ -16,8 +16,10 @@ public interface PersonDao {
     PersonEntity validateUser(Login login);
     PersonEntity getUserInfo(String username, String password);
     List<PersonEntity> getAllUsers();
-    //Returns users who are NOT enrolled to the course with courseid
+    //Returns users who are NOT enrolled to this course.
     List<PersonEntity> getAllUnerolledUsers(int courseid);
+    //Returns users who are enrolled to this course
+    List<PersonEntity> getAllEnrolledUsers(int courseid);
     PersonEntity getUserById(int userid);
 
     void removeUser(int userid);

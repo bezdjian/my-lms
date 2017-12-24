@@ -44,6 +44,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    public List<PersonEntity> getAllEnrolledUsers(int courseid) {
+        return personDao.getAllEnrolledUsers(courseid);
+    }
+
+    @Override
     public PersonEntity getUserById(int userid) {
         return personDao.getUserById(userid);
     }

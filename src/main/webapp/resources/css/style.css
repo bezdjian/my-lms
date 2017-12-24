@@ -841,6 +841,8 @@ body {
     min-height:150px;
     margin: 10px 0;
     box-shadow: 0 0 10px 0 #ccc;
+    display: inline-block;
+    width: 100%;
 }
 
 /*JQUERY UI OVERRIDE*/

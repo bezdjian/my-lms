@@ -86,6 +86,16 @@ public class PersonDaoImpl implements PersonDao {
         return users;
     }
 
+    @Override
+    public List<PersonEntity> getAllEnrolledUsers(int courseid) {
+        List<PersonEntity> users = jdbcTemplate.query("SELECT * FROM person WHERE id IN (SELECT personid FROM personcourse WHERE courseid = " +courseid+ ")",
+                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                        rs.getString("country"), rs.getString("email"), rs.getString("gender"),
+                        rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
+                        rs.getString("companyservices"), rs.getString("role")));
+        return users;
+    }
+
     @Transactional
     @Override
     public PersonEntity getUserById(int userid) {
