@@ -28,6 +28,7 @@ import org.supercsv.prefs.CsvPreference;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Controller
@@ -122,8 +123,8 @@ public class PersonController {
 		if(reportType.equals("usercourses")){
 			reportName = "UserCourses_Report.csv";
 			ArrayList<String> rows = new ArrayList<String>();
-			//Add headers
-			rows.add("ID, Full name, Role, Course name, End date, Enrol date, Start date");
+			//Add headers, Stargin columns with capital ID make SYLK error in Excell.
+			rows.add("id, Full name, Role, Course name, End date, Enrol date, Start date");
 			rows.add("\n");
 
 			List<UserReport> report = personDao.getUserReports();
@@ -145,8 +146,8 @@ public class PersonController {
 		}else if(reportType.equals("users")){
 			reportName = "User_Report.csv";
 			ArrayList<String> rows = new ArrayList<String>();
-			//Add headers
-			rows.add("ID, Full name, Role, Email, Country");
+			//Add headers, Stargin columns with capital ID make SYLK error in Excell.
+			rows.add("id, Full name, Role, Email, Country");
 			rows.add("\n");
 
 			List<PersonEntity> report = personDao.getAllUsers();
@@ -207,7 +208,8 @@ public class PersonController {
 
 		try {
 			try (InputStream is = file.getInputStream();
-				 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile))) {
+				 BufferedWriter stream = new BufferedWriter(new OutputStreamWriter(
+				 		new FileOutputStream(serverFile), StandardCharsets.UTF_8))) {
 				int i;
 				//write file to server
 				while ((i = is.read()) != -1) {
@@ -224,7 +226,8 @@ public class PersonController {
 
 		ICsvBeanReader beanReader = null;
 		try{
-			beanReader = new CsvBeanReader(new FileReader(serverFile), CsvPreference.STANDARD_PREFERENCE);
+			beanReader = new CsvBeanReader(new FileReader(serverFile),
+					CsvPreference.STANDARD_PREFERENCE);
 
 			final String[] headers = beanReader.getHeader(true);
 			final CellProcessor[] processor = getProcessors();
@@ -281,7 +284,8 @@ public class PersonController {
 				new Optional(), //country
 				new Optional(), //companyname
 				new Optional(), //companylocation
-				new Optional()}; //companyservices
+				new Optional(), //companyservices
+				new Optional()}; //password
 	}
 
 	/*
