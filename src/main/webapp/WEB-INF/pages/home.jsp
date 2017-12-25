@@ -25,7 +25,7 @@
                                                 ${course.coursename}
                                         </a>
                                         <span class="product-date">
-                                                date
+                                                ${course.enrollddate}
                                         </span>
                                         <div>
                                                 ${course.description}

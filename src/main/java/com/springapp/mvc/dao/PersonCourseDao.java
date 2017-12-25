@@ -1,9 +1,6 @@
 package com.springapp.mvc.dao;
 
-import com.springapp.mvc.domain.CourseEntity;
-import com.springapp.mvc.domain.PersonCourseEntity;
-import com.springapp.mvc.domain.PersonEntity;
-import com.springapp.mvc.domain.PersonProductEntity;
+import com.springapp.mvc.domain.*;
 
 import java.util.List;
 
@@ -13,6 +10,6 @@ import java.util.List;
 public interface PersonCourseDao {
     void insertPersonCourse(PersonCourseEntity personCourseEntity);
     CourseEntity getPersonCourseByPersonId(int id);
-    List<CourseEntity> getAllPersonCourses(int personid);
+    List<PersonCourseObject> getAllPersonCourses(int personid);
     void enrolUserToCourse(int courseid, int userid);
 }

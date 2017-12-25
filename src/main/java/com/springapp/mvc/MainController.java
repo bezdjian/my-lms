@@ -80,7 +80,7 @@ public class MainController {
 			//Reload person
 			//PersonEntity person = personDao.getUserById(personInSession.getId());
 			List<ProductEntity> personProducts = personProductDao.getAllPersonProducts(personInSession.getId());
-			List<CourseEntity> personCourses = personCourseDao.getAllPersonCourses(personInSession.getId());
+			List<PersonCourseObject> personCourses = personCourseDao.getAllPersonCourses(personInSession.getId());
 
 			m.addAttribute("personProducts", personProducts);
 			m.addAttribute("personCourses", personCourses);
