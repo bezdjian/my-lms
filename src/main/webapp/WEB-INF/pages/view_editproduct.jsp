@@ -46,7 +46,7 @@
                                         </c:if>
                                         <div class="col-10 product-image-view">
                                             <c:if test="${view}">
-                                                <img src="/resources/uploads/${product.image}" />
+                                                <img src="${contextPath}/resources/uploads/${product.image}" />
                                             </c:if>
                                             <c:if test="${not view}">
                                                 <input class="form-control" type="file"
@@ -113,7 +113,7 @@
                                             </button>
                                         </c:if>
                                         <c:if test="${view}">
-                                            <a class="btn btn-primary" href="/view_editproduct/${product.id}/edit">
+                                            <a class="btn btn-primary" href="${contextPath}/view_editproduct/${product.id}/edit">
                                                 <i class="fa fa-edit">
                                                     <label>Edit</label>
                                                 </i>

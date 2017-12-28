@@ -44,10 +44,10 @@
                                        <td>${user.country}</td>
                                        <td>${user.companyname}</td>
                                        <td>
-                                           <a href="/editprofile/${user.id}/preedit">
+                                           <a href="<c:url value="/editprofile/${user.id}/preedit" />">
                                                <i class="fa fa-edit" aria-hidden="true"></i>
                                            </a>
-                                           <a href="/delete/${user.id}">
+                                           <a href="<c:url value="/delete/${user.id}" />">
                                                <i class="fa fa-remove" aria-hidden="true"></i>
                                            </a>
                                        </td>
@@ -59,7 +59,7 @@
                     </div>
                     <c:if test="${person.role == 'admin'}">
                         <div class="form-group">
-                            <a href="<c:url value="${contextPath}/adduser"/>" class="btn btn-primary">
+                            <a href="<c:url value="/adduser"/>" class="btn btn-primary">
                                 <i class="fa fa-plus-square">
                                     <label>Add new user</label>
                                 </i>

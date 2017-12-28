@@ -1,2 +1,2 @@
 Main.class
-com\springapp\mvc\PersonController.class
+com/springapp/mvc/domain/PersonCourseObject.class
