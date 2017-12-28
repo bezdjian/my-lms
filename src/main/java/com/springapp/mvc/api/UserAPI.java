@@ -1,6 +1,9 @@
 package com.springapp.mvc.api;
 
+import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.dao.PersonProductDao;
+import com.springapp.mvc.domain.PersonCourseEntity;
+import com.springapp.mvc.domain.PersonCourseObject;
 import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.ProductEntity;
 import com.springapp.mvc.service.PersonService;
@@ -25,6 +28,9 @@ public class UserAPI {
     @Autowired
     PersonService personService;
 
+    @Autowired
+    PersonCourseDao personCourseDao;
+
     @RequestMapping(value = "/getallusers", method = RequestMethod.GET)
     @ResponseBody
     public List<PersonEntity> getAllUsers(){
@@ -35,5 +41,11 @@ public class UserAPI {
     @ResponseBody
     public List<ProductEntity> getUserProducts(@RequestParam(value = "userid") int userid){
         return personProductDao.getAllPersonProducts(userid);
+    }
+
+    @RequestMapping(value = "/getusercourses", method = RequestMethod.GET)
+    @ResponseBody
+    public List<PersonCourseObject> getUserCourses(@RequestParam( value = "userid") int userid){
+        return personCourseDao.getAllPersonCourses(userid);
     }
 }
