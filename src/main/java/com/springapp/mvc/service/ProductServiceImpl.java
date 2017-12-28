@@ -1,9 +1,6 @@
 package com.springapp.mvc.service;
 
-import com.springapp.mvc.dao.PersonDao;
 import com.springapp.mvc.dao.ProductDao;
-import com.springapp.mvc.domain.Login;
-import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.ProductEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

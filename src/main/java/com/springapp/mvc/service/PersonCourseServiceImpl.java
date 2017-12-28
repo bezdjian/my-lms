@@ -4,7 +4,6 @@ import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.domain.CourseEntity;
 import com.springapp.mvc.domain.PersonCourseEntity;
 import com.springapp.mvc.domain.PersonCourseObject;
-import com.springapp.mvc.domain.PersonEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

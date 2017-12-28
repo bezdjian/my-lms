@@ -1,12 +1,8 @@
 package com.springapp.mvc.service;
 
 import com.springapp.mvc.dao.CourseDao;
-import com.springapp.mvc.dao.PersonDao;
 import com.springapp.mvc.domain.CourseEntity;
-import com.springapp.mvc.domain.Login;
-import com.springapp.mvc.domain.PersonEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

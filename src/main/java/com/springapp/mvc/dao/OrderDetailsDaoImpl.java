@@ -1,13 +1,11 @@
 package com.springapp.mvc.dao;
 
 import com.springapp.mvc.domain.OrderDetailsEntity;
-import com.springapp.mvc.domain.ProductEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;

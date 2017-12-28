@@ -1,6 +1,5 @@
 package com.springapp.mvc.dao;
 
-import com.springapp.mvc.domain.CourseEntity;
 import com.springapp.mvc.domain.ProductEntity;
 
 import java.util.List;

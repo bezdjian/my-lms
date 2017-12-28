@@ -1,5 +1,4 @@
 import com.springapp.mvc.dao.PersonDao;
-import com.springapp.mvc.domain.PersonEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;

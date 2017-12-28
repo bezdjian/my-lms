@@ -5,7 +5,6 @@ import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.UserReport;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.sql.DataSource;
 import java.sql.Types;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by bezdj on 04/02/2017.

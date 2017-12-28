@@ -1,22 +1,16 @@
 package com.springapp.mvc;
+
 import com.springapp.mvc.ajaxClasses.Greeting;
 import com.springapp.mvc.ajaxClasses.PersonCourses;
-import com.springapp.mvc.dao.PersonDao;
-import com.springapp.mvc.dao.PersonDaoImpl;
 import com.springapp.mvc.dao.PersonProductDao;
 import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.PersonProductEntity;
-import com.springapp.mvc.service.PersonProductService;
-import com.springapp.mvc.service.PersonProductServiceImpl;
 import com.springapp.mvc.service.PersonService;
-import com.springapp.mvc.service.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**

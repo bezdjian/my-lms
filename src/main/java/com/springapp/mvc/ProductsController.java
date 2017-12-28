@@ -1,8 +1,5 @@
 package com.springapp.mvc;
 
-import com.springapp.mvc.ajaxClasses.UploadItem;
-import com.springapp.mvc.dao.OrderDetailsDao;
-import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.dao.PersonProductDao;
 import com.springapp.mvc.dao.ProductDao;
 import com.springapp.mvc.domain.ProductEntity;
@@ -11,19 +8,14 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.BindException;
 
 @Controller
 @Scope("session")

@@ -2,7 +2,6 @@ package com.springapp.mvc.api;
 
 import com.springapp.mvc.dao.PersonProductDao;
 import com.springapp.mvc.domain.PersonEntity;
-import com.springapp.mvc.domain.PersonProductEntity;
 import com.springapp.mvc.domain.ProductEntity;
 import com.springapp.mvc.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;

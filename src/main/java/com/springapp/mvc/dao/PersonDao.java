@@ -2,10 +2,8 @@ package com.springapp.mvc.dao;
 
 import com.springapp.mvc.domain.Login;
 import com.springapp.mvc.domain.PersonEntity;
-import com.springapp.mvc.domain.PersonProductEntity;
 import com.springapp.mvc.domain.UserReport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
