@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @Scope("session")
@@ -89,7 +91,7 @@ public class PersonController {
 		return "adduser";
 	}
 
-	@RequestMapping(value = "delete/{userid}")
+	@RequestMapping(value = "/delete/{userid}")
 	public String deleteUser(@PathVariable("userid") int userid, RedirectAttributes ra){
 		personDao.removeUser(userid);
 		//When return "redirect:/...", we need RedirectAttributes and addFlashAttribute
@@ -97,8 +99,8 @@ public class PersonController {
 		return "redirect:/allusers";
 	}
 
-	/*
-	//Had to put the same function here for the registration page that goes from this controller.
+
+	//Had to put the same function here for the profile page that goes from this controller.
 	@ModelAttribute("countryNames")
 	public Map<String,String> populateCountryNames() {
 		Map<String,String> countryNames = new LinkedHashMap<String,String>();
@@ -107,5 +109,5 @@ public class PersonController {
 		countryNames.put("Norway", "Norway");
 		countryNames.put("Finland", "Finland");
 		return countryNames;
-	}*/
+	}
 }

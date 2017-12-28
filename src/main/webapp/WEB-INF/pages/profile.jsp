@@ -54,7 +54,11 @@
                                     </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Edit</button>
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="fa fa-edit">
+                                                    <label>Edit</label>
+                                                </i>
+                                            </button>
                                         </div>
                                 </div>
                             </div>

@@ -81,7 +81,7 @@
 </c:if>
 
     <div class="block company_info_block">
-        <h5>Company Information</h5>
+        <h5>User Information</h5>
 
         <div>
             <label class="icon" for="companyName">

@@ -96,8 +96,8 @@
 
                                         <div class="form-group">
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="fa fa-send">
-                                                        <label>Submit</label>
+                                                    <i class="fa fa-save">
+                                                        <label>Save</label>
                                                     </i>
                                                 </button>
                                         </div>
