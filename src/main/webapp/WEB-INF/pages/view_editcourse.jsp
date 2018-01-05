@@ -41,7 +41,7 @@
                                         <label class="col-2 col-form-label">Image:</label>
                                         <div class="col-10">
                                             <c:if test="${view}">
-                                                <img src="${contextPath}/resources/uploads/${course.courseimage}" style="height: 300px;"/>
+                                                <img src="${contextPath}/resources/uploads/${course.courseimage}" style="max-height: 300px;width: 100%"/>
                                             </c:if>
                                             <c:if test="${not view}">
                                                 <input class="form-control" type="file"

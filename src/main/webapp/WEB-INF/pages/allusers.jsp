@@ -48,7 +48,7 @@
                                                <i class="fa fa-edit" aria-hidden="true"></i>
                                            </a>
                                            <a href="<c:url value="/delete/${user.id}" />">
-                                               <i class="fa fa-remove" aria-hidden="true"></i>
+                                               <i class="fa fa-trash-o" aria-hidden="true"></i>
                                            </a>
                                        </td>
                                    </tr>
@@ -90,3 +90,4 @@
         </div>
     </div>
     <%@include file="includes/footer.jsp"%>
+</div>

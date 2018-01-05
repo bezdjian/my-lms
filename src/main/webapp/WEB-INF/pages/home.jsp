@@ -9,12 +9,10 @@
 
                     <div class="panel">
                         <div class="panel panel-heading">
-                            <div id="welcome-panel">
-                                <h4>Welcome  ${person.firstname} ${person.lastname}!</h4>
-                            </div>
+                            <h4>Welcome  ${person.firstname} ${person.lastname}!</h4>
                         </div>
 
-                        <div class="panel-body">
+                        <div class="panel">
                             <div class="container-fluid">
                                 <c:forEach var="course" items="${personCourses}">
                                     <div class="coursebox">
@@ -37,9 +35,10 @@
                             <div style="height: 5px;margin: 1em;"></div>
 
                             <div class="container-fluid">
-                                <h4>Products</h4>
+                                <div class="panel panel-heading">
+                                    <h4>Products</h4>
+                                </div>
                                 <c:forEach var="products" items="${personProducts}">
-
                                     <div class="person-product-container">
                                         <div class="product-image">
                                             <img src="${contextPath}/resources/uploads/${products.image}" style="width: 65px;height: 65px;border-radius: 50%;"/>

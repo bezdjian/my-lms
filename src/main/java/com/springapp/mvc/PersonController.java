@@ -4,6 +4,7 @@ import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.dao.PersonDao;
 import com.springapp.mvc.dao.PersonProductDao;
 import com.springapp.mvc.domain.PersonEntity;
+import com.springapp.mvc.helpers.CryptoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.springapp.mvc.helpers.CryptoUtils.byteArrayToHexString;
 
 @Controller
 @Scope("session")
@@ -36,6 +39,7 @@ public class PersonController {
 	public String userProfile(HttpServletRequest request, Model model, @PathVariable("userid") int userid){
 		//reload user with userid.
 		PersonEntity user = personDao.getUserById(userid);
+		System.out.println("USERNAME: " + user.getUsername());
 		model.addAttribute("person", user);
 		return "profile";
 	}
@@ -43,14 +47,19 @@ public class PersonController {
 	@RequestMapping("/editprofile/{userid}/{edit}")
 	public String userProfileEdit(HttpServletRequest request, Model model,
 							  @PathVariable("userid") int userid, @PathVariable("edit") String edit,
-								  @ModelAttribute("adduser") PersonEntity adduser){
+								  @ModelAttribute("adduser") PersonEntity adduser) throws Exception{
 
 		if(edit.equals("doedit")){
 			//Edit person from form.
 			PersonEntity editUser = new PersonEntity();
 			editUser.setId(userid);
 			editUser.setUsername(request.getParameter("person_uname"));
-			editUser.setPassword(request.getParameter("person_password"));
+
+			//Hash the user's password before editing.
+			String password = request.getParameter("person_password");
+			String hash = byteArrayToHexString(CryptoUtils.computeHash(password));
+			editUser.setPassword(hash);
+
 			editUser.setFirstname(request.getParameter("person_fname"));
 			editUser.setLastname(request.getParameter("person_lname"));
 			editUser.setGender(request.getParameter("gender"));
@@ -64,8 +73,15 @@ public class PersonController {
 			personDao.insertPerson(editUser);
 			//Return back to viewprofile
 			return "redirect:/profile/"+userid;
+
 		}else if(edit.equals("doadd")){
 			System.out.println("NEW USER: " + adduser.getFirstname());
+
+			//Hash user's password before insertion.
+			String newPassword = adduser.getPassword();
+			String hash = byteArrayToHexString(CryptoUtils.computeHash(newPassword));
+			adduser.setPassword(hash);
+
 			personDao.insertPerson(adduser);
 			//Return back to all users
 			return "redirect:/allusers";

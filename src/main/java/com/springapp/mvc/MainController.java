@@ -6,6 +6,7 @@ import com.springapp.mvc.dao.PersonProductDao;
 import com.springapp.mvc.domain.PersonCourseObject;
 import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.ProductEntity;
+import com.springapp.mvc.helpers.CryptoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -60,6 +61,14 @@ public class MainController {
 	public String addUser(HttpServletRequest request, HttpServletResponse response,
 								@ModelAttribute("userToBeRegistered") PersonEntity user) {
 
+		try{
+			//Encrypting user's password before insertion.
+			String password = user.getPassword();
+			String hash = CryptoUtils.byteArrayToHexString(CryptoUtils.computeHash(password));
+			user.setPassword(hash);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 		personDao.insertPerson(user);
 		request.getSession().setAttribute("person", user);
 

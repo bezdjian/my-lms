@@ -61,7 +61,7 @@ public class ProductDaoImpl implements ProductDao {
     @Transactional
     @Override
     public List<ProductEntity> getAllProducts() {
-        String sql = "SELECT * FROM products order by price";
+        String sql = "SELECT * FROM products order by id";
         List<ProductEntity> products = jdbcTemplate.query(sql,
                 (rs, rowNum)-> new ProductEntity(rs.getInt("id"), rs.getString("create_date"),
                         rs.getString("image"), rs.getString("name"), rs.getDouble("price"),

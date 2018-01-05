@@ -6,6 +6,7 @@ package com.springapp.mvc;
 
 import com.springapp.mvc.domain.Login;
 import com.springapp.mvc.domain.PersonEntity;
+import com.springapp.mvc.helpers.CryptoUtils;
 import com.springapp.mvc.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 
 @Controller
 public class LoginController {
@@ -40,6 +40,17 @@ public class LoginController {
     public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
                                      @ModelAttribute("login") Login login, Model modal) {
         ModelAndView mav = null;
+
+        try{
+            //Get user's password and hash it to make the sql query.
+            String password = login.getPassword();
+            String hash = CryptoUtils.byteArrayToHexString(CryptoUtils.computeHash(password));
+            login.setPassword(hash);
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
         PersonEntity user = userService.validateUser(login);
 
         if (null != user) {

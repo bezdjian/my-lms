@@ -28,11 +28,6 @@
                                             <label for="product_name" class="col-2 col-form-label">Name:</label>
                                         </c:if>
                                         <div class="col-10">
-                                            <c:if test="${view}">
-                                                <label>
-                                                    ${product.name}
-                                                </label>
-                                            </c:if>
                                             <c:if test="${not view}">
                                                 <input class="form-control" type="text" value="${product.name}" id="product_name" name="product_name"/>
                                             </c:if>
@@ -79,7 +74,7 @@
                                                 <label>${product.price}${product.currency}</label>
                                             </c:if>
                                             <c:if test="${not view}">
-                                                <input class="form-control" id="product_price" name="product_price" type="text" value="${product.price}" />
+                                                <input class="form-control" id="product_price" name="product_price" type="number" value="${product.price}" />
                                                 <select id="product_price_currency" name="product_price_currency" class="currency-selector">
                                                     <option value=":-">SEK :-</option>
                                                     <option value="$">USD &dollar;</option>
@@ -104,54 +99,32 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
-                                        <c:if test="${not view}">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="fa fa-save">
-                                                    <label>Save</label>
-                                                </i>
-                                            </button>
-                                        </c:if>
-                                        <c:if test="${view}">
-                                            <a class="btn btn-primary" href="${contextPath}/view_editproduct/${product.id}/edit">
-                                                <i class="fa fa-edit">
-                                                    <label>Edit</label>
-                                                </i>
-                                            </a>
-                                        </c:if>
-                                    </div>
+                                    <c:if test="${person.role == 'admin'}">
+                                        <div class="form-group row">
+                                            <c:if test="${not view}">
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa fa-save">
+                                                        <label>Save</label>
+                                                    </i>
+                                                </button>
+                                            </c:if>
+                                            <c:if test="${view}">
+                                                <a class="btn btn-primary" href="${contextPath}/view_editproduct/${product.id}/edit">
+                                                    <i class="fa fa-edit">
+                                                        <label>Edit</label>
+                                                    </i>
+                                                </a>
+                                            </c:if>
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
                         </form:form>
                     </div>
                 </div>
 
-                <div class="col-sm-3">
-                    <div class="block company_info_block">
-                        <h5>Company Information</h5>
-
-                        <div>
-                            <label class="icon" for="companyName">
-                                <i class="fa fa-building-o" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyName">Company: ${person.companyname}</p>
-                        </div>
-
-                        <div>
-                            <label class="icon" for="companyLocation">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyLocation">Location: ${person.companylocation}</p>
-                        </div>
-
-                        <div>
-                            <label class="icon" for="companyServices">
-                                <i class="fa fa-server" aria-hidden="true"></i>
-                            </label>
-                            <p id="companyServices">Services: ${person.companyservices}</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Right side block -->
+                <%@include file="includes/blocks.jsp"%></div>
             </div>
         </div>
     </div>

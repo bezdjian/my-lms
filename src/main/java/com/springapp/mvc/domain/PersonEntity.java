@@ -169,9 +169,10 @@ public class PersonEntity {
 
     //Constructor
     public PersonEntity(){}
-    public PersonEntity(int id,String firstname, String lastname, String country, String email, String gender, String accounttype,
+    public PersonEntity(int id,String username, String firstname, String lastname, String country, String email, String gender, String accounttype,
                         String companyname, String companylocation, String companyservices, String role) {
         this.id = id;
+        this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.country = country;

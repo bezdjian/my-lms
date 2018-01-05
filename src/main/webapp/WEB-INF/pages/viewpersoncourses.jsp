@@ -17,11 +17,11 @@
                     <div class="panel">
                         <div class="panel-heading">
                             <div id="welcome-panel">
-                                <h4>My courses</h4>
+                                <h2>My courses</h2>
                             </div>
                         </div>
 
-                        <div>
+                        <div class="container person_courses">
                             <c:forEach var="course" items="${personcourses}">
 
                                 <div class="person-product-container">

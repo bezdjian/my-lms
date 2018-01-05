@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/jquery.dataTables.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/jquery-ui.css"/>"/>
@@ -27,14 +27,22 @@
     <script src="<c:url value="/resources/js/jquery.cookie.js"/> "></script>
     <script src="<c:url value="/resources/js/jquery-ui.js"/> "></script>
     <script src="<c:url value="/resources/js/jquery.dataTables.js"/> "></script>
+    <script src="<c:url value="/resources/js/bootstrap.min.js"/> "></script>
     <script src="<c:url value="/resources/js/app.js"/> "></script>
 </head>
 <body>
 
 <!-- Top page, navbar -->
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid navbar-inner">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-inner">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#lms-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#">Spring MVC</a>
             <!--div id="header" class="header-panel">
                 <div id="header-content">
@@ -44,34 +52,40 @@
                 </div>
             </div-->
         </div>
-        <ul class="nav navbar-nav">
-            <li><a href="<c:url value="/home"/>">Home</a></li>
-            <li><a href="<c:url value="/viewpersoncourses/${person.id}"/>">My Courses</a></li>
-            <li><a href="<c:url value="/viewpersonproducts/${person.id}"/>">My Books</a></li>
-            <li><a href="<c:url value="/allcourses"/>">Available courses</a></li>
-            <li><a href="<c:url value="/allproducts"/>">Book Library</a></li>
-        </ul>
-        <c:if test="${person.id == null}">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="<c:url value="/" /> ">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                    Login/Sign Up
-                </a>
-            </li>
-        </ul>
-        </c:if>
-        <c:if test="${person.id != null}">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
-                    <span>${person.firstname} ${person.lastname}, ${person.role}</span>
-                </a>
-                <a href="<c:url value="/" />" class="signout">
-                    <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-        </c:if>
+
+        <div id="lms-navbar-collapse" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="<c:url value="/home"/>">Home</a></li>
+                <li><a href="<c:url value="/viewpersoncourses/${person.id}"/>">My Courses</a></li>
+                <li><a href="<c:url value="/viewpersonproducts/${person.id}"/>">My Books</a></li>
+                <li><a href="<c:url value="/allcourses"/>">Available courses</a></li>
+                <li><a href="<c:url value="/allproducts"/>">Book Library</a></li>
+            </ul>
+            <c:if test="${person.id == null}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<c:url value="/" /> ">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
+                            Login/Sign Up
+                        </a>
+                    </li>
+                </ul>
+            </c:if>
+            <c:if test="${person.id != null}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="userinfo_container">
+                            <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
+                                <span>${person.firstname} ${person.lastname}</span>
+                            </a>
+                            <a href="<c:url value="/" />" class="signout">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </c:if>
+        </div>
+
     </div>
 </nav>

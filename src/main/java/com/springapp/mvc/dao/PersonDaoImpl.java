@@ -40,7 +40,7 @@ public class PersonDaoImpl implements PersonDao {
         //selects * and puts the values into the object in mapper
         String sql = "SELECT * FROM person where username='" + login.getUsername() + "' and password='" + login.getPassword() + "'";
         List<PersonEntity> users = jdbcTemplate.query(sql,
-                (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));
@@ -53,7 +53,7 @@ public class PersonDaoImpl implements PersonDao {
     public PersonEntity getUserInfo(String username, String password){
         String sql = "SELECT * FROM person where username='" + username + "' and password='" + password + "'";
         List<PersonEntity> users = jdbcTemplate.query(sql,
-                (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                (rs, rowNum)-> new PersonEntity(rs.getInt("id"),  rs.getString("username"),rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));
@@ -65,7 +65,7 @@ public class PersonDaoImpl implements PersonDao {
     public List<PersonEntity> getAllUsers() {
         List<PersonEntity> users = jdbcTemplate.query(
                 "SELECT * FROM person",
-                (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role"))
@@ -77,7 +77,7 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public List<PersonEntity> getAllUnerolledUsers(int courseid) {
         List<PersonEntity> users = jdbcTemplate.query("SELECT * FROM person WHERE id NOT IN (SELECT personid FROM personcourse WHERE courseid = " +courseid+ ")",
-                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));
@@ -87,7 +87,7 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public List<PersonEntity> getAllEnrolledUsers(int courseid) {
         List<PersonEntity> users = jdbcTemplate.query("SELECT * FROM person WHERE id IN (SELECT personid FROM personcourse WHERE courseid = " +courseid+ ")",
-                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));
@@ -100,7 +100,7 @@ public class PersonDaoImpl implements PersonDao {
         String sql1 = "SELECT * FROM person WHERE id = "+ userid;
         //return jdbcTemplate.queryForObject(sql1, new Object[]{userid}, new BeanPropertyRowMapper<>(PersonEntity.class));
         List<PersonEntity> user = jdbcTemplate.query(sql1,
-                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("firstname"), rs.getString("lastname"),
+                (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
                         rs.getString("companyservices"), rs.getString("role")));

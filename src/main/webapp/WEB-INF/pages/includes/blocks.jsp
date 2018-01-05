@@ -1,84 +1,82 @@
-<!-- Right side block -->
-<c:if test="${person.role == 'admin'}">
-    <div class="col-sm-3">
 
-        <c:if test="${course != null}">
-            <div class="block course_admin_block">
-                <h5>Course Administration</h5>
+<div class="col-sm-3">
+    <c:if test="${person.role == 'admin'}">
+            <c:if test="${course != null}">
+                <div class="block course_admin_block">
+                    <h5>Course Administration</h5>
 
+                    <div>
+                        <a href="${contextPath}/view_editcourse/${course.id}/edit">
+                            <label class="icon">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </label>
+                            Edit course
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="${contextPath}/enroltocourse/${course.id}/enrol">
+                            <label class="icon">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                            </label>
+                            Enrol user
+                        </a>
+                    </div>
+
+                    <div>
+                        <a href="${contextPath}/delete/course/${course.id}">
+                            <label class="icon">
+                                <i class="fa fa-remove" aria-hidden="true"></i>
+                            </label>
+                            Delete course
+                        </a>
+                    </div>
+                </div>
+            </c:if>
+
+
+            <div class="block admin-block">
+                <h5>Administration</h5>
                 <div>
-                    <a href="${contextPath}/view_editcourse/${course.id}/edit">
-                        <label class="icon">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </label>
-                        Edit course
+                    <label class="icon">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </label>
+                    <a href="<c:url value="/allusers"/>">
+                        Users
                     </a>
                 </div>
 
                 <div>
-                    <a href="${contextPath}/enroltocourse/${course.id}/enrol">
-                        <label class="icon">
-                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                        </label>
-                        Enrol user
+                    <label class="icon">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                    </label>
+                    <a href="<c:url value="/uploadUsersForm"/>">
+                        Upload users
+                    </a>
+                </div>
+
+                <hr>
+
+                <p>Reports</p>
+                <div>
+                    <label class="icon">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </label>
+                    <a href="<c:url value="/reports/usercourses"/>">
+                        User Courses reports
                     </a>
                 </div>
 
                 <div>
-                    <a href="${contextPath}/delete/course/${course.id}">
-                        <label class="icon">
-                            <i class="fa fa-remove" aria-hidden="true"></i>
-                        </label>
-                        Delete course
+                    <label class="icon">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </label>
+                    <a href="<c:url value="/reports/users"/>">
+                        Users Report
                     </a>
                 </div>
             </div>
-        </c:if>
-
-
-        <div class="block admin-block">
-            <h5>Administration</h5>
-            <div>
-                <label class="icon">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                </label>
-                <a href="<c:url value="/allusers"/>">
-                    Users
-                </a>
-            </div>
-
-            <div>
-                <label class="icon">
-                    <i class="fa fa-upload" aria-hidden="true"></i>
-                </label>
-                <a href="<c:url value="/uploadUsersForm"/>">
-                    Upload users
-                </a>
-            </div>
-
-            <hr>
-
-            <p>Reports</p>
-            <div>
-                <label class="icon">
-                    <i class="fa fa-list" aria-hidden="true"></i>
-                </label>
-                <a href="<c:url value="/reports/usercourses"/>">
-                    User Courses reports
-                </a>
-            </div>
-
-            <div>
-                <label class="icon">
-                    <i class="fa fa-list" aria-hidden="true"></i>
-                </label>
-                <a href="<c:url value="/reports/users"/>">
-                    Users Report
-                </a>
-            </div>
-
-        </div>
-</c:if>
+    </c:if>
 
     <div class="block company_info_block">
         <h5>User Information</h5>

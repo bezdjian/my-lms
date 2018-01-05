@@ -91,10 +91,12 @@
                                                                             <i class="fa fa-eye"></i> View more
                                                                         </a>
                                                                     </span>
-                                                                    <c:if test="${not person.role == 'admin'}">
-                                                                    <a href="<c:url value='/view_editproduct/${product.id}/edit'/>">
-                                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                                                    </a>
+                                                                    <c:if test="${person.role == 'admin'}">
+                                                                    <span class="product-grid__btn product-grid__view">
+                                                                        <a href="<c:url value='/view_editproduct/${product.id}/edit'/>">
+                                                                            <i class="fa fa-pencil-square-o"></i> Edit
+                                                                        </a>
+                                                                    </span>
                                                                     </c:if>
                                                                 </div>
                                                             </div>

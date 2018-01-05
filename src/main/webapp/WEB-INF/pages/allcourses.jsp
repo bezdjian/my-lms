@@ -22,7 +22,7 @@
                         </div>
 
                         <div>
-                            <c:forEach var="course" items="${course}">
+                            <c:forEach var="course" items="${allcourses}">
 
                                 <div class="person-product-container">
                                     <div class="product-image">

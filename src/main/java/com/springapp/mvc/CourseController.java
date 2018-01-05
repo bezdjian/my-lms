@@ -36,7 +36,7 @@ public class CourseController {
 	@RequestMapping("/allcourses")
 	public String allCourses(HttpServletRequest request, Model m){
 		m.addAttribute("person", request.getSession().getAttribute("person"));
-		m.addAttribute("course", courseDao.getAllCourses());
+		m.addAttribute("allcourses", courseDao.getAllCourses());
 		return "allcourses";
 	}
 
