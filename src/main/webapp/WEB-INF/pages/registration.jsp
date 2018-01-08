@@ -45,7 +45,7 @@
                 <input type="text" name="username" id="username" placeholder="User name" required/>
 
                 <label class="icon" for="password">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <i class="fa fa-user-secret" aria-hidden="true"></i>
                 </label>
                 <input type="password" name="password" id="password" placeholder="Password" required/>
 

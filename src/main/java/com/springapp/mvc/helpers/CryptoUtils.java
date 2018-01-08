@@ -33,13 +33,18 @@ public class CryptoUtils {
         }
     }
 
-    public static byte[] computeHash(String x) throws Exception
+    public static byte[] computeHash(String x)
     {
-        java.security.MessageDigest d =null;
-        d = java.security.MessageDigest.getInstance("SHA-1");
-        d.reset();
-        d.update(x.getBytes());
-        return  d.digest();
+        try{
+            java.security.MessageDigest d =null;
+            d = java.security.MessageDigest.getInstance("SHA-1");
+            d.reset();
+            d.update(x.getBytes());
+            return  d.digest();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static String byteArrayToHexString(byte[] b){

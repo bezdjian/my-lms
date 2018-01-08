@@ -31,6 +31,10 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <img src="${contextPath}/resources/profile_pictures/${person.profileImage}" />
+                                    </div>
+
+                                    <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> First name:</label>
                                                 <span for="person_fname">${person.firstname}</span>

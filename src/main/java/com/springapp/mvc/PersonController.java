@@ -7,14 +7,15 @@ import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.helpers.CryptoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,58 +38,88 @@ public class PersonController {
 
 	@RequestMapping("/profile/{userid}")
 	public String userProfile(HttpServletRequest request, Model model, @PathVariable("userid") int userid){
-		//reload user with userid.
+		//reload user with userid then send to profile page.
 		PersonEntity user = personDao.getUserById(userid);
-		System.out.println("USERNAME: " + user.getUsername());
+		System.out.println("PIII: " + user.getProfileImage());
 		model.addAttribute("person", user);
 		return "profile";
 	}
 
-	@RequestMapping("/editprofile/{userid}/{edit}")
+	@RequestMapping(value = "/editprofile/{userid}/{edit}",  method = RequestMethod.POST)
 	public String userProfileEdit(HttpServletRequest request, Model model,
 							  @PathVariable("userid") int userid, @PathVariable("edit") String edit,
-								  @ModelAttribute("adduser") PersonEntity adduser) throws Exception{
+								@RequestParam(value = "profile_image", required = false) MultipartFile image,
+								@ModelAttribute("adduser") PersonEntity adduser){
 
-		if(edit.equals("doedit")){
-			//Edit person from form.
-			PersonEntity editUser = new PersonEntity();
-			editUser.setId(userid);
-			editUser.setUsername(request.getParameter("person_uname"));
+		//Profile image
+		String orgName = "";
+		boolean imageUpdated = false;
+		if (image != null && !image.isEmpty()) {
+			imageUpdated = true;
+			try{
+				String uploadsDir = File.separator + "resources" + File.separator + "profile_pictures";
+				String realPathtoUploads = request.getServletContext().getRealPath(uploadsDir);
+				if (!new File(realPathtoUploads).exists()) {
+					new File(realPathtoUploads).mkdir();
+				}
 
-			//Hash the user's password before editing.
-			String password = request.getParameter("person_password");
-			String hash = byteArrayToHexString(CryptoUtils.computeHash(password));
-			editUser.setPassword(hash);
+				orgName = image.getOriginalFilename();
+				String filePath = realPathtoUploads + File.separator + orgName;
+				image.transferTo(new File(filePath));
 
-			editUser.setFirstname(request.getParameter("person_fname"));
-			editUser.setLastname(request.getParameter("person_lname"));
-			editUser.setGender(request.getParameter("gender"));
-			editUser.setCountry(request.getParameter("country"));
-			editUser.setEmail(request.getParameter("person_email"));
-			editUser.setCompanyname(request.getParameter("person_company"));
-			editUser.setCompanylocation(request.getParameter("person_clocation"));
-			editUser.setCompanyservices(request.getParameter("person_cservices"));
-			editUser.setRole(request.getParameter("role"));
-			editUser.setAccounttype(request.getParameter("accounttype"));
-			personDao.insertPerson(editUser);
-			//Return back to viewprofile
-			return "redirect:/profile/"+userid;
-
-		}else if(edit.equals("doadd")){
-			System.out.println("NEW USER: " + adduser.getFirstname());
-
-			//Hash user's password before insertion.
-			String newPassword = adduser.getPassword();
-			String hash = byteArrayToHexString(CryptoUtils.computeHash(newPassword));
-			adduser.setPassword(hash);
-
-			personDao.insertPerson(adduser);
-			//Return back to all users
-			return "redirect:/allusers";
+				System.out.println("filePath, userProfileEdit:--------------------- " + filePath);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
 		}
 
-		PersonEntity user = personDao.getUserById(userid);
-		model.addAttribute("person", user);
+		switch (edit){
+			case "doedit":
+				//Edit person from form.
+				PersonEntity editUser = personDao.getUserById(userid);
+				editUser.setUsername(request.getParameter("person_uname"));
+
+				//Hash the user's password before editing.
+				String password = request.getParameter("person_password");
+				String hash = byteArrayToHexString(CryptoUtils.computeHash(password));
+				editUser.setPassword(hash);
+
+				editUser.setFirstname(request.getParameter("person_fname"));
+				editUser.setLastname(request.getParameter("person_lname"));
+				editUser.setGender(request.getParameter("gender"));
+				editUser.setCountry(request.getParameter("country"));
+				editUser.setEmail(request.getParameter("person_email"));
+				editUser.setCompanyname(request.getParameter("person_company"));
+				editUser.setCompanylocation(request.getParameter("person_clocation"));
+				editUser.setCompanyservices(request.getParameter("person_cservices"));
+				editUser.setRole(request.getParameter("role"));
+				editUser.setAccounttype(request.getParameter("accounttype"));
+
+				//We already loaded the userById, update image if the new one is uploaded.
+				if(imageUpdated){
+					editUser.setProfileImage(orgName);
+				}
+
+				personDao.insertPerson(editUser);
+				//Return back to viewprofile
+				return "redirect:/profile/"+userid;
+			case "doadd":
+				//Hash user's password before insertion.
+				String newPassword = adduser.getPassword();
+				String hash1 = byteArrayToHexString(CryptoUtils.computeHash(newPassword));
+				adduser.setPassword(hash1);
+				adduser.setProfileImage(orgName);
+
+				personDao.insertPerson(adduser);
+				//Return back to all users
+				return "redirect:/allusers";
+			case "preedit":
+				PersonEntity user = personDao.getUserById(userid);
+				model.addAttribute("person", user);
+				System.out.println("PI: " + user.getProfileImage());
+				return "editprofile";
+		}
+
 		return "editprofile";
 	}
 

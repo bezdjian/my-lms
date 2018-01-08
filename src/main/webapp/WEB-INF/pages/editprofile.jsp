@@ -21,7 +21,7 @@
                             </div>
                         </div>
 
-                        <form:form action="${contextPath}/editprofile/${person.id}/doedit" commandName="person">
+                        <form:form action="${contextPath}/editprofile/${person.id}/doedit" commandName="person" enctype="multipart/form-data" method="post">
                             <input type="hidden" name="accounttype" id="accounttype" value="${person.accounttype}"/>
                             <input type="hidden" name="role" id="role" value="${person.role}"/>
                             <div class="panel-body">
@@ -30,6 +30,16 @@
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Username:</label>
                                         <input class="form-control" type="text" value="${person.username}" id="person_uname" name="person_uname"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-2 col-form-label">
+                                            <i class="fa fa-image" aria-hidden="true"></i> Profile picture:</label>
+                                        <input class="form-control" type="file"
+                                               value="${person.profileImage}"
+                                               src="${person.profileImage}"
+                                               id="profile_image" name="profile_image"/>
+                                        <label>${person.profileImage}</label>
                                     </div>
 
                                     <div class="form-group">

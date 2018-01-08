@@ -24,6 +24,7 @@ public class PersonEntity {
     private String companyservices;
 
     private String fullName;
+    private String profileImage;
 
     @Id
     @Column(name = "id")
@@ -170,7 +171,7 @@ public class PersonEntity {
     //Constructor
     public PersonEntity(){}
     public PersonEntity(int id,String username, String firstname, String lastname, String country, String email, String gender, String accounttype,
-                        String companyname, String companylocation, String companyservices, String role) {
+                        String companyname, String companylocation, String companyservices, String role, String profileImage) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -183,6 +184,7 @@ public class PersonEntity {
         this.companylocation = companylocation;
         this.companyservices = companyservices;
         this.role = role;
+        this.profileImage = profileImage;
     }
 
 
@@ -216,5 +218,13 @@ public class PersonEntity {
         result = 31 * result + (companylocation != null ? companylocation.hashCode() : 0);
         result = 31 * result + (companyservices != null ? companyservices.hashCode() : 0);
         return result;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }

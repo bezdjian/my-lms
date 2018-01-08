@@ -75,6 +75,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <div class="userinfo_container">
+                            <img src="${contextPath}/resources/profile_pictures/${person.profileImage}" id="profile_image"/>
                             <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
                                 <span>${person.firstname} ${person.lastname}</span>
                             </a>

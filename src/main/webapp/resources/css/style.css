@@ -95,6 +95,13 @@ label{
     background: #fff;
 }
 
+#profile_image{
+    float: left;
+    width: 30px;
+    margin: 7px;
+    border-radius: 50%;
+}
+
 .registrationbox {
     margin: 20px auto;
     width: 39em;

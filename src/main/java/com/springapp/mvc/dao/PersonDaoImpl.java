@@ -43,7 +43,7 @@ public class PersonDaoImpl implements PersonDao {
                 (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
-                        rs.getString("companyservices"), rs.getString("role")));
+                        rs.getString("companyservices"), rs.getString("role"), rs.getString("profileImage")));
         return users.size() > 0 ? users.get(0) : null;
     }
 
@@ -56,7 +56,7 @@ public class PersonDaoImpl implements PersonDao {
                 (rs, rowNum)-> new PersonEntity(rs.getInt("id"),  rs.getString("username"),rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
-                        rs.getString("companyservices"), rs.getString("role")));
+                        rs.getString("companyservices"), rs.getString("role"), rs.getString("profileImage")));
         return users.size() > 0 ? users.get(0) : new PersonEntity();
     }
 
@@ -68,7 +68,7 @@ public class PersonDaoImpl implements PersonDao {
                 (rs, rowNum)-> new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
-                        rs.getString("companyservices"), rs.getString("role"))
+                        rs.getString("companyservices"), rs.getString("role"), rs.getString("profileImage"))
         );
         return users;
     }
@@ -80,7 +80,7 @@ public class PersonDaoImpl implements PersonDao {
                 (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
-                        rs.getString("companyservices"), rs.getString("role")));
+                        rs.getString("companyservices"), rs.getString("role"), rs.getString("profileImage")));
         return users;
     }
 
@@ -90,7 +90,7 @@ public class PersonDaoImpl implements PersonDao {
                 (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
-                        rs.getString("companyservices"), rs.getString("role")));
+                        rs.getString("companyservices"), rs.getString("role"), rs.getString("profileImage")));
         return users;
     }
 
@@ -103,7 +103,7 @@ public class PersonDaoImpl implements PersonDao {
                 (rs, rowNum)->new PersonEntity(rs.getInt("id"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"),
                         rs.getString("country"), rs.getString("email"), rs.getString("gender"),
                         rs.getString("accounttype"), rs.getString("companyname"), rs.getString("companylocation"),
-                        rs.getString("companyservices"), rs.getString("role")));
+                        rs.getString("companyservices"), rs.getString("role"), rs.getString("profileImage")));
         return user.size() > 0 ? user.get(0) : new PersonEntity();
     }
 
