@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/rest/user", method = RequestMethod.GET,
-produces = MediaType.APPLICATION_JSON_VALUE)
+produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UserAPI {
 
     @Autowired

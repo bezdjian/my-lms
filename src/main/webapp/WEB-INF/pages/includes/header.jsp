@@ -15,7 +15,7 @@
 </c:if>
 <!DOCTYPE html>
 <head>
-    <title>Home</title>
+    <title>${mylmstitle}</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/jquery.dataTables.css"/>"/>
@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Spring MVC</a>
+            <a class="navbar-brand" href="<c:url value="/home"/>">Spring MVC</a>
             <!--div id="header" class="header-panel">
                 <div id="header-content">
                     <div id="logo">

@@ -38,6 +38,7 @@ public class ProductsController {
 		// m.addAttribute("courses", "Courses--");
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		m.addAttribute("products", productDao.getAllProducts());
+		m.addAttribute("mylmstitle", "Book Library");
 		return "allproducts";
 	}
 
@@ -50,9 +51,11 @@ public class ProductsController {
 		if(action.equals("view")){
 			isView = true;
 		}
+		ProductEntity product = productDao.getProductById(productid);
 		m.addAttribute("view", isView);
 		m.addAttribute("person", request.getSession().getAttribute("person"));
-		m.addAttribute("product", productDao.getProductById(productid));
+		m.addAttribute("product", product);
+		m.addAttribute("mylmstitle", product.getName());
 		return "view_editproduct";
 	}
 
@@ -103,6 +106,8 @@ public class ProductsController {
         product.setCurrency(request.getParameter("product_price_currency"));
 
         productDao.insertProduct(product);
+		m.addAttribute("mylmstitle", "Book library");
+
 		return "redirect:/allproducts";
 	}
 
@@ -113,6 +118,7 @@ public class ProductsController {
 		// m.addAttribute("courses", "Courses--");
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		m.addAttribute("personproducts", personProductDao.getAllPersonProducts(personid));
+		m.addAttribute("mylmstitle", "My books");
 		return "viewpersonproducts";
 	}
 }

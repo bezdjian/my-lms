@@ -58,7 +58,7 @@ public class MainController {
 	}
 
 	@RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
-	public String addUser(HttpServletRequest request, HttpServletResponse response,
+	public String addUser(HttpServletRequest request, HttpServletResponse response, Model m,
 								@ModelAttribute("userToBeRegistered") PersonEntity user) {
 
 		try{
@@ -74,6 +74,7 @@ public class MainController {
 
 		//This return keeps the /registerProcess on the URL, when refresh, it gets registered again.
 		//so i need to redirect to home.
+		m.addAttribute("mylmstitle", "Home");
 		return "redirect:/home";
 	}
 
@@ -92,6 +93,7 @@ public class MainController {
 
 			//remove message_err
 			request.getSession().setAttribute("message_err", null);
+			m.addAttribute("mylmstitle", "Home");
 			return "home";
 		}
 		return "redirect:/";

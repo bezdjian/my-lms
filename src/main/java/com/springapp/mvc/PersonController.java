@@ -41,6 +41,7 @@ public class PersonController {
 		//reload user with userid then send to profile page.
 		PersonEntity user = personDao.getUserById(userid);
 		model.addAttribute("person", user);
+		model.addAttribute("mylmstitle", "Profile | "+ user.getUsername());
 		return "profile";
 	}
 
@@ -100,6 +101,7 @@ public class PersonController {
 
 				personDao.insertPerson(editUser);
 				//Return back to viewprofile
+				model.addAttribute("mylmstitle", "Profile | " + editUser.getUsername());
 				return "redirect:/profile/"+userid;
 			case "doadd":
 				//Hash user's password before insertion.
@@ -110,13 +112,16 @@ public class PersonController {
 
 				personDao.insertPerson(adduser);
 				//Return back to all users
+				model.addAttribute("mylmstitle", "All users");
 				return "redirect:/allusers";
 			case "preedit":
 				PersonEntity user = personDao.getUserById(userid);
 				model.addAttribute("person", user);
+				model.addAttribute("mylmstitle", "Edit profile");
 				return "editprofile";
 		}
 
+		model.addAttribute("mylmstitle", "Edit profile");
 		return "editprofile";
 	}
 
@@ -125,6 +130,7 @@ public class PersonController {
 	public String allUsers(HttpServletRequest request, Model model){
 		List<PersonEntity> allusers = personDao.getAllUsers();
 		model.addAttribute("allusers", allusers);
+		model.addAttribute("mylmstitle", "All users");
 		return "allusers";
 	}
 
@@ -132,14 +138,18 @@ public class PersonController {
 	public String addUser(HttpServletRequest request, Model model){
 		PersonEntity adduser = new PersonEntity();
 		model.addAttribute("adduser", adduser);
+		model.addAttribute("mylmstitle", "Add new user");
+
 		return "adduser";
 	}
 
 	@RequestMapping(value = "/delete/{userid}")
-	public String deleteUser(@PathVariable("userid") int userid, RedirectAttributes ra){
+	public String deleteUser(@PathVariable("userid") int userid, RedirectAttributes ra, Model model){
 		personDao.removeUser(userid);
 		//When return "redirect:/...", we need RedirectAttributes and addFlashAttribute
 		ra.addFlashAttribute("delete_msg", "User with " + userid + " has been deleted.");
+		model.addAttribute("mylmstitle", "All users");
+
 		return "redirect:/allusers";
 	}
 

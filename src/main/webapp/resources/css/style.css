@@ -628,7 +628,6 @@ body {
 
 .add_to_cart-div {
     width: 250px;
-    width: 52%;
     margin: 0 auto;
 }
 
@@ -798,7 +797,7 @@ body {
     font-weight: bold;
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
     background-color: #1274b8;
     font-weight: bold;
 }
@@ -925,6 +924,18 @@ body {
 
 /*EO: JQUERY UI OVERRIDE*/
 
+
+
+.image-div{
+    width: 27%;
+    float: left;
+    margin-right: 20px;
+    min-height: 400px;
+}
+.image-div img{
+    width: 100%;
+}
+
 @media (max-width: 1180px) {
     #page,
     .navbar-default .navbar-inner {
@@ -941,9 +952,23 @@ body {
     }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 500px) {
     .navbar {
         border-radius: 0;
+    }
+
+
+    .image-div{
+        width: 100%;
+        float: left;
+        margin-bottom: 20px;
+        min-height: 100%;
+    }
+    .image-div img{
+        width: 100%;
+    }
+    form{
+        margin: 0;
     }
 }
 
@@ -960,18 +985,9 @@ body {
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
     background-color: transparent;
 }
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-brand:hover{
     color: #FFF;
     background-color: #2b669a;
 }
 /*EO: TOGGLE MENU*/
-
-.image-div{
-    width: 27%;
-    float: left;
-    margin-right: 20px;
-    min-height: 400px;
-}
-.image-div img{
-    width: 100%;
-}

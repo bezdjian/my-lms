@@ -37,6 +37,7 @@ public class CourseController {
 	public String allCourses(HttpServletRequest request, Model m){
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		m.addAttribute("allcourses", courseDao.getAllCourses());
+		m.addAttribute("mylmstitle", "All courses");
 		return "allcourses";
 	}
 
@@ -45,6 +46,7 @@ public class CourseController {
 		// Send Strings from .properties maybe?
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		m.addAttribute("personcourses", personCourseDao.getAllPersonCourses(personid));
+		m.addAttribute("mylmstitle", "My courses");
 		return "viewpersoncourses";
 	}
 
@@ -60,6 +62,7 @@ public class CourseController {
 		m.addAttribute("view", isView);
 		m.addAttribute("person", request.getSession().getAttribute("person"));
 		m.addAttribute("course", courseDao.getCourseById(courseid));
+		m.addAttribute("mylmstitle", "Edit course");
 		return "view_editcourse";
 	}
 
@@ -108,6 +111,7 @@ public class CourseController {
 		course.setCategoryid(Integer.parseInt(request.getParameter("course_category")));
 
 		courseDao.insertCourse(course);
+		m.addAttribute("mylmstitle", "All courses");
 		return "redirect:/allcourses";
 	}
 
@@ -124,11 +128,13 @@ public class CourseController {
 			m.addAttribute("allEnrolledUsers", allEnrolledUsers);
 			m.addAttribute("course", course);
 			m.addAttribute("person", request.getSession().getAttribute("person"));
+			m.addAttribute("mylmstitle", "Course enrolment");
 			return "enroltocourse";
 		}else{
 			//Enrol user to the course.
 			personCourseDao.enrolUserToCourse(courseid, Integer.parseInt(userid));
 			//return "redirect:/view_editcourse/"+courseid+"/view";
+			m.addAttribute("mylmstitle", "Course enrolment");
 			return "redirect:/enroltocourse/"+courseid+"/enrol";
 		}
 
@@ -136,8 +142,9 @@ public class CourseController {
 
 
 	@RequestMapping(value = "/delete/course/{courseid}")
-	public String removeCourse(@PathVariable("courseid") int courseid){
+	public String removeCourse(@PathVariable("courseid") int courseid, Model m){
 		courseDao.removeCourse(courseid);
+		m.addAttribute("mylmstitle", "All courses");
 		return "redirect:/allcourses";
 	}
 }
