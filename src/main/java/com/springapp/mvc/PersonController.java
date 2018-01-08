@@ -40,7 +40,6 @@ public class PersonController {
 	public String userProfile(HttpServletRequest request, Model model, @PathVariable("userid") int userid){
 		//reload user with userid then send to profile page.
 		PersonEntity user = personDao.getUserById(userid);
-		System.out.println("PIII: " + user.getProfileImage());
 		model.addAttribute("person", user);
 		return "profile";
 	}
@@ -67,7 +66,6 @@ public class PersonController {
 				String filePath = realPathtoUploads + File.separator + orgName;
 				image.transferTo(new File(filePath));
 
-				System.out.println("filePath, userProfileEdit:--------------------- " + filePath);
 			}catch (Exception e){
 				e.printStackTrace();
 			}
@@ -116,7 +114,6 @@ public class PersonController {
 			case "preedit":
 				PersonEntity user = personDao.getUserById(userid);
 				model.addAttribute("person", user);
-				System.out.println("PI: " + user.getProfileImage());
 				return "editprofile";
 		}
 
