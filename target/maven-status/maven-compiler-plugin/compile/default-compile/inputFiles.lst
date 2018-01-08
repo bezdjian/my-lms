@@ -17,12 +17,12 @@
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/dao/CourseDao.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/MainController.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/AjaxController.java
-/var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/client/Test.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/domain/EmploymentEntity.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/service/PersonCourseServiceImpl.java
 /var/www/intellijProjects/myLMS/src/main/java/Main.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/dao/PersonCourseDao.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/dao/PersonProductDaoImpl.java
+/var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/helpers/CryptoUtils.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/service/ProductService.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/dao/CourseDaoImpl.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/domain/UserReport.java
