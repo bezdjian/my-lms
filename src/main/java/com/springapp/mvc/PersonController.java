@@ -40,7 +40,7 @@ public class PersonController {
 	public String userProfile(HttpServletRequest request, Model model, @PathVariable("userid") int userid){
 		//reload user with userid then send to profile page.
 		PersonEntity user = personDao.getUserById(userid);
-		model.addAttribute("person", user);
+		model.addAttribute("persontoview", user);
 		model.addAttribute("mylmstitle", "Profile | "+ user.getUsername());
 		return "profile";
 	}

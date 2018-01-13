@@ -102,6 +102,12 @@ label{
     border-radius: 50%;
 }
 
+#profile-image-allusers{
+    width: 50px;
+    margin: 0px;
+    border-radius: 50%;
+}
+
 .registrationbox {
     margin: 20px auto;
     width: 39em;

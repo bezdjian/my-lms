@@ -37,6 +37,15 @@
                                    <tr>
                                        <td>
                                            <a href="<c:url value="/profile/${user.id}" />">
+                                               <c:choose>
+                                                   <c:when test="${user.profileImage == null}">
+                                                       <img id="profile-image-allusers"
+                                                            src="${contextPath}/resources/images/noimage.png" />
+                                                   </c:when>
+                                                   <c:otherwise>
+                                                       <img id="profile-image-allusers" src="${contextPath}/resources/profile_pictures/${user.profileImage}" />
+                                                   </c:otherwise>
+                                               </c:choose>
                                                <span>${user.firstname} ${user.lastname}</span>
                                            </a>
                                        </td>

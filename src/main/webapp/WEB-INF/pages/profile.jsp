@@ -15,49 +15,56 @@
             <div class="row">
                 <div class="col-sm-9">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <!--div class="panel-heading">
                             <div id="welcome-panel" class="welcome-panelsss">
                                 <h4>${person.firstname} ${person.lastname}</h4>
                             </div>
-                        </div>
+                        </div-->
 
-                        <form:form action="${contextPath}/editprofile/${person.id}/preedit" modelAttribute="person" enctype="multipart/form-data">
+                        <form:form action="${contextPath}/editprofile/${persontoview.id}/preedit" modelAttribute="persontoview" enctype="multipart/form-data">
                             <div class="panel-body">
                                 <div class="container-fluid userprofile">
 
                                     <div class="image-div">
                                         <div class="form-group">
-                                            <img src="${contextPath}/resources/profile_pictures/${person.profileImage}" />
+                                            <c:choose>
+                                                <c:when test="${persontoview.profileImage == null}">
+                                                    <img src="${contextPath}/resources/images/noimage.png" />
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img src="${contextPath}/resources/profile_pictures/${persontoview.profileImage}" />
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </div>
                                     <div class="user-profile-div">
                                         <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Username:</label>
-                                            <span>${person.username}</span>
+                                            <span>${persontoview.username}</span>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> First name:</label>
-                                            <span for="person_fname">${person.firstname}</span>
+                                            <span for="person_fname">${persontoview.firstname}</span>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Last name:</label>
-                                            <span for="person_fname">${person.lastname}</span>
+                                            <span for="person_fname">${persontoview.lastname}</span>
                                         </div>
 
                                         <div class="form-group">
                                             <label><i class="icon-globe fa fa-globe"></i> Country:</label>
-                                            <span>${person.country}</span>
+                                            <span>${persontoview.country}</span>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-envelope" aria-hidden="true"></i> Email:</label>
-                                            <span for="person_email">${person.email}</span>
+                                            <span for="person_email">${persontoview.email}</span>
                                         </div>
                                     </div>
 
