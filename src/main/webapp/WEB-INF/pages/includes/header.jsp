@@ -75,8 +75,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <div class="userinfo_container">
+                        <c:if test="${not empty person.profileImage}">
                             <img src="${contextPath}/resources/profile_pictures/${person.profileImage}" id="profile-image"/>
-                            <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
+                        </c:if>
+                        <c:if test="${empty person.profileImage}">
+                            <img src="${contextPath}/resources/images/no-user.png" id="profile-image"/>
+                        </c:if>
+                        <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
                                 <span>${person.firstname} ${person.lastname}</span>
                             </a>
                             <a href="<c:url value="/" />" class="signout">

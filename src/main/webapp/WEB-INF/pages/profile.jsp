@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <c:choose>
                                                 <c:when test="${persontoview.profileImage == null}">
-                                                    <img src="${contextPath}/resources/images/noimage.png" />
+                                                    <img src="${contextPath}/resources/images/no-user.png" />
                                                 </c:when>
                                                 <c:otherwise>
                                                     <img src="${contextPath}/resources/profile_pictures/${persontoview.profileImage}" />
@@ -88,5 +88,5 @@
             </div>
         </div>
     </div>
-
+</div>
     <%@include file="includes/footer.jsp"%>
