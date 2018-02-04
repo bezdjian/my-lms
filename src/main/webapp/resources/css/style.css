@@ -109,7 +109,7 @@ label{
 }
 
 .registrationbox {
-    margin: 20px auto;
+    margin: 0 auto;
     width: 39em;
     height: 100%;
     -webkit-border-radius: 8px/7px;
