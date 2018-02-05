@@ -19,7 +19,7 @@
                                         <div class="course_image">
                                             <img src="${contextPath}/resources/uploads/${course.courseimage}"/>
                                         </div>
-                                        <a href="<c:url value="/view_editcourse/${course.id}/view"/>">
+                                        <a href="<c:url value="/course/${course.id}"/>">
                                                 ${course.coursename}
                                         </a>
                                         <span class="product-date">

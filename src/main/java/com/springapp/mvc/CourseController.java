@@ -66,6 +66,19 @@ public class CourseController {
 		return "view_editcourse";
 	}
 
+	//NEW view course
+
+	@RequestMapping(value = "/course/{courseid}", method = RequestMethod.GET)
+	public String viewCourse(Model m, HttpServletRequest request,
+								 @PathVariable("courseid") int courseid){
+
+		CourseEntity course = courseDao.getCourseById(courseid);
+		m.addAttribute("person", request.getSession().getAttribute("person"));
+		m.addAttribute("course", course);
+		m.addAttribute("mylmstitle", course.getCoursename());
+		return "course";
+	}
+
 	@RequestMapping("/editcourse/{courseid}")
 	public String editCourse(@PathVariable("courseid") int courseid,
 							 @RequestParam("course_image") MultipartFile image,
