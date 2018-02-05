@@ -81,12 +81,23 @@
                         <c:if test="${empty person.profileImage}">
                             <img src="${contextPath}/resources/images/no-user.png" id="profile-image"/>
                         </c:if>
-                        <a href="<c:url value="/profile/${person.id}" />" class="user_header_info">
-                                <span>${person.firstname} ${person.lastname}</span>
-                            </a>
-                            <a href="<c:url value="/" />" class="signout">
-                                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            </a>
+
+                            <div class="dropdown my-dropdown">
+                                <button class="btn btn-primary btn-transparent dropdown-toggle" type="button" data-toggle="dropdown">
+                                        ${person.firstname} ${person.lastname}
+                                    <span class="caret"></span></button>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="<c:url value="/profile/${person.id}" />">Profile</a></li>
+                                    <li><a href="#">Stuff</a></li>
+                                    <li><div class="dropdown-divider"></div></li>
+                                    <li><a href="<c:url value="/" />">Log out</a></li>
+                                </ul>
+                            </div>
+
+                        <!--a href="<c:url value="/" />" class="signout">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </a-->
                         </div>
                     </li>
                 </ul>

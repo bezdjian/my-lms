@@ -340,6 +340,14 @@ input[type="submit"]:hover {
     font-size: 14px;
     font-weight: normal;
 }
+.my-dropdown{
+    float: left;
+    padding-top: 8px;
+}
+.btn-transparent{
+    background-color: transparent;
+    border: 0;
+}
 
 .signout {
     float: right;
