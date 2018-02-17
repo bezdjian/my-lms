@@ -5,6 +5,7 @@ import com.springapp.mvc.ajaxClasses.PersonCourses;
 import com.springapp.mvc.dao.PersonProductDao;
 import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.PersonProductEntity;
+import com.springapp.mvc.helpers.CryptoUtils;
 import com.springapp.mvc.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -40,7 +41,8 @@ public class AjaxController {
     public PersonEntity getUserInfoViaAjax(@RequestParam("username") String username,
                                                            @RequestParam("password") String password) {
         //ArrayList<PersonCourses> courses = new ArrayList<PersonCourses>();
-        return personService.getUserInfo(username, password);
+        String hashedPassword = CryptoUtils.byteArrayToHexString(CryptoUtils.computeHash(password));
+        return personService.getUserInfo(username, hashedPassword);
     }
 
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
