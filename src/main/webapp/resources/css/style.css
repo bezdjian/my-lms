@@ -4,7 +4,7 @@ html, body {
 }
 
 body{
-    padding: 70px 0 0 0;
+    /*padding: 70px 0 0 0;*/
     margin: 0;
 }
 
@@ -68,19 +68,31 @@ label{
 
 #page .container {
     padding: 0;
+    width: 100%;
 }
 
+#container{
+    margin-top: 4em;
+}
 
 .center-block{
     text-align: center;
 }
 
 #page {
-    width: 80%;
+    width: 85%;
     margin: 0 auto 1em auto;
     -webkit-box-shadow: 0 0 10px 0 #ccc;
     -moz-box-shadow: 0 0 10px 0 #ccc;
     box-shadow: 0 0 10px 0 #ccc;
+}
+
+.panel{
+    margin-bottom: 0;
+}
+
+.container-fluid{
+    padding:0;
 }
 
 .navbar-default .navbar-inner {
@@ -182,6 +194,8 @@ hr {
     opacity: 0.3;
     border-color: #ccc;
     margin: 5px 0 5px;
+    float: left;
+    width: 100%;
 }
 
 .registrationbox input[type=text],
@@ -342,11 +356,17 @@ input[type="submit"]:hover {
 }
 .my-dropdown{
     float: left;
-    padding-top: 8px;
+    /*padding-top: 8px;*/
 }
 .btn-transparent{
     background-color: transparent;
     border: 0;
+}
+.dropdown-menu > li > a{
+    color: #262626 !important;
+}
+.dropdown-menu > li > a:hover{
+    background-color: #c5c5c5 !important;
 }
 
 .signout {

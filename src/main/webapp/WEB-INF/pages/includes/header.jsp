@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/jquery.dataTables.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/jquery-ui.css"/>"/>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/resources/css/sidebar.css"/>"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/> "></script>
@@ -29,6 +30,7 @@
     <script src="<c:url value="/resources/js/jquery.dataTables.js"/> "></script>
     <script src="<c:url value="/resources/js/bootstrap.min.js"/> "></script>
     <script src="<c:url value="/resources/js/app.js"/> "></script>
+
 </head>
 <body>
 

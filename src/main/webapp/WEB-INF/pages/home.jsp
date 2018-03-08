@@ -1,7 +1,14 @@
 <%@include file="includes/header.jsp"%>
 
-<div id="container" class="container-fluid">
-    <div id="page" class="panel panel-default">
+
+
+<!-- Sidebar starts here -->
+<div id="wrapper" class="toggled">
+
+<%@include file="includes/sidebar.jsp"%>
+
+<div id="page" class="container-fluid">
+    <div id="page1" class="panel panel-default">
         <div id="page-content" class="panel-body">
 
             <div class="row">
@@ -67,4 +74,9 @@
         </div>
     </div>
 </div>
+
+
+</div>
+<!-- EO: Sidebar -->
+
 <%@include file="includes/footer.jsp"%>
