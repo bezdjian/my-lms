@@ -1,3 +1,8 @@
 - Add user profile picture, DONE
 - 'Kvitto' after checkout books
 - Address fields in orderdetails for the products to be shipped
+
+
+
+#Deploy on Weblogic from command line
+- java weblogic.Deployer -adminurl t3://localhost:7001 -username weblogic -password weblogic1 -deploy -name myLMS -source /var/www/intellijProjects/myLMS/target/myLMS.war

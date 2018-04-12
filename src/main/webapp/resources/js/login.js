@@ -19,9 +19,10 @@ function onClickAjax(contextPath){
         success : function(data) {
             var s = "";
             $.each(data, function(k, v) {
-                s += "<br>K: " + k + " --- v: " + v;
                 if(v == 0){
                     s = "<p>No user found!</p>";
+                }else{
+                  s += "<br>K: " + k + " --- v: " + v;
                 }
             });
 
