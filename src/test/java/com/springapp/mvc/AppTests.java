@@ -10,10 +10,13 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.springapp.mvc.TestClass;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -41,5 +44,12 @@ public class AppTests {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("registration"));
+
+
+        TestClass tc = new TestClass();
+
+        //tc.multiply(1000, 5);
+        assertEquals("10 / 5 must be 2", 2, tc.multiply(10, 5));
+        System.out.println("TESTOOOOOOO");
     }
 }

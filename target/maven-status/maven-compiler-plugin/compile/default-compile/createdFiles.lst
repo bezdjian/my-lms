@@ -40,6 +40,7 @@ com/springapp/mvc/service/PersonProductService.class
 com/springapp/mvc/ajaxClasses/Greeting.class
 com/springapp/mvc/ProductsController.class
 com/springapp/mvc/dao/OrderDetailsDao.class
+com/springapp/mvc/TestClass.class
 com/springapp/mvc/domain/PersonCourseEntity.class
 com/springapp/mvc/LoginController.class
 com/springapp/mvc/domain/ProductEntity.class

@@ -12,6 +12,7 @@
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/PersonController.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/dao/ProductDaoImpl.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/LoginController.java
+/var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/TestClass.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/domain/Login.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/dao/CourseDao.java
 /var/www/intellijProjects/myLMS/src/main/java/com/springapp/mvc/MainController.java
