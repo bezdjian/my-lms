@@ -199,7 +199,7 @@
                 <artifactId>tomcat-maven-plugin</artifactId>
                 <version>1.1</version>
                 <configuration>
-                    <path>/myLMS</path>
+                    <path>/${project.artifactId}##${project.version}</path>
                     <update>true</update>
                     <url>http://localhost:8080/manager/text</url>
                     <username>tomcat</username>

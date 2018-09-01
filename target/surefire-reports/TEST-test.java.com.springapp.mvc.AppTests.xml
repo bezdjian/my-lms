@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="test.java.com.springapp.mvc.AppTests" time="0.202" errors="0" skipped="1">
+<testsuite tests="1" failures="0" name="test.java.com.springapp.mvc.AppTests" time="0.258" errors="0" skipped="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -61,11 +61,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="test.java.com.springapp.mvc.AppTests" name="simple" time="0.202">
+  <testcase classname="test.java.com.springapp.mvc.AppTests" name="simple" time="0.258">
     <skipped/>
-    <system-err>Sep 01, 2018 2:33:21 PM org.springframework.test.context.web.WebTestContextBootstrapper getDefaultTestExecutionListenerClassNames
+    <system-err>Sep 01, 2018 2:56:49 PM org.springframework.test.context.web.WebTestContextBootstrapper getDefaultTestExecutionListenerClassNames
 INFO: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-Sep 01, 2018 2:33:21 PM org.springframework.test.context.web.WebTestContextBootstrapper getTestExecutionListeners
+Sep 01, 2018 2:56:49 PM org.springframework.test.context.web.WebTestContextBootstrapper getTestExecutionListeners
 INFO: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@42d80b78, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3bfdc050, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1bce4f0a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5e3a8624, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c3bd550, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@91161c7]
 </system-err>
   </testcase>
