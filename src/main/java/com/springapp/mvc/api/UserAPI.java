@@ -2,7 +2,7 @@ package com.springapp.mvc.api;
 
 import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.dao.PersonProductDao;
-import com.springapp.mvc.domain.PersonCourseObject;
+import com.springapp.mvc.pojo.PersonCourseObject;
 import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.domain.ProductEntity;
 import com.springapp.mvc.service.PersonService;

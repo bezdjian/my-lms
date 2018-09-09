@@ -1,4 +1,4 @@
-package com.springapp.mvc.domain;
+package com.springapp.mvc.pojo;
 
 /**
  * Created by bezdj on 05/06/2017.

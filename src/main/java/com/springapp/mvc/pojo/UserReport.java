@@ -1,4 +1,4 @@
-package com.springapp.mvc.domain;
+package com.springapp.mvc.pojo;
 
 public class UserReport {
     private int personid;

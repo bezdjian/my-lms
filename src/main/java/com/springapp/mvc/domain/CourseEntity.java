@@ -25,7 +25,7 @@ public class CourseEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -34,7 +34,6 @@ public class CourseEntity {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "coursename")
     public String getCoursename() {
         return coursename;
@@ -44,7 +43,6 @@ public class CourseEntity {
         this.coursename = coursename;
     }
 
-    @Basic
     @Column(name = "description")
     public String getDescription() {
         return description;
@@ -54,7 +52,6 @@ public class CourseEntity {
         this.description = description;
     }
 
-    @Basic
     @Column(name = "idnumber")
     public String getIdnumber() {
         return idnumber;
@@ -64,7 +61,6 @@ public class CourseEntity {
         this.idnumber = idnumber;
     }
 
-    @Basic
     @Column(name = "categoryid")
     public int getCategoryid() {
         return categoryid;

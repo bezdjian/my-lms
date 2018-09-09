@@ -28,7 +28,7 @@ public class PersonEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -37,7 +37,6 @@ public class PersonEntity {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "username")
     public String getUsername() {
         return username;
@@ -47,7 +46,7 @@ public class PersonEntity {
         this.username = username;
     }
 
-    @Basic
+
     @Column(name = "password")
     public String getPassword() {
         return password;
@@ -57,7 +56,7 @@ public class PersonEntity {
         this.password = password;
     }
 
-    @Basic
+
     @Column(name = "firstname")
     public String getFirstname() {
         return firstname;
@@ -67,7 +66,6 @@ public class PersonEntity {
         this.firstname = firstname;
     }
 
-    @Basic
     @Column(name = "lastname")
     public String getLastname() {
         return lastname;
@@ -77,7 +75,6 @@ public class PersonEntity {
         this.lastname = lastname;
     }
 
-    @Basic
     @Column(name = "country")
     public String getCountry() {
         return country;
@@ -87,7 +84,6 @@ public class PersonEntity {
         this.country = country;
     }
 
-    @Basic
     @Column(name = "email")
     public String getEmail() {
         return email;
@@ -97,7 +93,6 @@ public class PersonEntity {
         this.email = email;
     }
 
-    @Basic
     @Column(name = "gender")
     public String getGender() {
         return gender;
@@ -107,8 +102,6 @@ public class PersonEntity {
         this.gender = gender;
     }
 
-
-    @Basic
     @Column(name = "accounttype")
     public String getAccounttype() {
         return accounttype;
@@ -118,7 +111,6 @@ public class PersonEntity {
         this.accounttype = accounttype;
     }
 
-    @Basic
     @Column(name = "companyname")
     public String getCompanyname() {
         return companyname;
@@ -128,8 +120,6 @@ public class PersonEntity {
         this.companyname = companyname;
     }
 
-
-    @Basic
     @Column(name = "companylocation")
     public String getCompanylocation() {
         return companylocation;
@@ -139,7 +129,6 @@ public class PersonEntity {
         this.companylocation = companylocation;
     }
 
-    @Basic
     @Column(name = "companyservices")
     public String getCompanyservices() {
         return companyservices;
@@ -149,8 +138,6 @@ public class PersonEntity {
         this.companyservices = companyservices;
     }
 
-
-    @Basic
     @Column(name = "role")
     public String getRole() {
         return role;

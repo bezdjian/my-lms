@@ -1,4 +1,4 @@
 .idea/
 classes/
-target/
-/target
+target/*
+/target*

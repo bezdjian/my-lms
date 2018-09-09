@@ -17,7 +17,7 @@ public class PersonCourseEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     public int getId() {
         return id;
@@ -27,7 +27,7 @@ public class PersonCourseEntity {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "courseid")
     public int getCourseId() {
         return courseid;
@@ -37,7 +37,7 @@ public class PersonCourseEntity {
         this.courseid = courseId;
     }
 
-    @Basic
+
     @Column(name = "personid")
     public int getPersonid() {
         return personid;
@@ -47,7 +47,7 @@ public class PersonCourseEntity {
         this.personid = personid;
     }
 
-    @Basic
+
     @Column(name = "enrolldate")
     public String getEnrollddate() {
         return enrollddate;
@@ -57,7 +57,7 @@ public class PersonCourseEntity {
         this.enrollddate = enrollddate;
     }
 
-    @Basic
+
     @Column(name = "startdate")
     public String getStartdate() {
         return startdate;
@@ -67,7 +67,7 @@ public class PersonCourseEntity {
         this.startdate = startdate;
     }
 
-    @Basic
+
     @Column(name = "enddate")
     public String getEnddate() {
         return enddate;

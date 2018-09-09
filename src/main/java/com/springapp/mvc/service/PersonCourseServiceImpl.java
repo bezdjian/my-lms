@@ -3,7 +3,7 @@ package com.springapp.mvc.service;
 import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.domain.CourseEntity;
 import com.springapp.mvc.domain.PersonCourseEntity;
-import com.springapp.mvc.domain.PersonCourseObject;
+import com.springapp.mvc.pojo.PersonCourseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

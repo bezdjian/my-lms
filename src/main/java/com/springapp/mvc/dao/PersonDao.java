@@ -1,8 +1,8 @@
 package com.springapp.mvc.dao;
 
-import com.springapp.mvc.domain.Login;
+import com.springapp.mvc.pojo.Login;
 import com.springapp.mvc.domain.PersonEntity;
-import com.springapp.mvc.domain.UserReport;
+import com.springapp.mvc.pojo.UserReport;
 
 import java.util.List;
 

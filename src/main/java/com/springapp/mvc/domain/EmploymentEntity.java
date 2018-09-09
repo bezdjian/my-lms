@@ -14,7 +14,7 @@ public class EmploymentEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -23,7 +23,7 @@ public class EmploymentEntity {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "title")
     public String getTitle() {
         return title;
@@ -33,7 +33,7 @@ public class EmploymentEntity {
         this.title = title;
     }
 
-    @Basic
+
     @Column(name = "company")
     public String getCompany() {
         return company;

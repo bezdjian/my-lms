@@ -20,7 +20,7 @@ public class OrderDetailsEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -29,7 +29,7 @@ public class OrderDetailsEntity {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "amount")
     public int getAmount() {
         return amount;
@@ -39,7 +39,7 @@ public class OrderDetailsEntity {
         this.amount = amount;
     }
 
-    @Basic
+
     @Column(name = "quantity")
     public int getQuantity() {
         return quantity;
@@ -49,7 +49,7 @@ public class OrderDetailsEntity {
         this.quantity = quantity;
     }
 
-    @Basic
+
     @Column(name = "price")
     public double getPrice() {
         return price;
@@ -59,7 +59,7 @@ public class OrderDetailsEntity {
         this.price = price;
     }
 
-    @Basic
+
     @Column(name = "order_id")
     public int getOrder_id() {
         return order_id;
@@ -69,7 +69,7 @@ public class OrderDetailsEntity {
         this.order_id = order_id;
     }
 
-    @Basic
+
     @Column(name = "product_id")
     public int getProduct_id() {
         return product_id;
@@ -79,7 +79,7 @@ public class OrderDetailsEntity {
         this.product_id = product_id;
     }
 
-    @Basic
+
     @Column(name = "person_id")
     public int getPerson_id() {
         return person_id;
@@ -90,7 +90,7 @@ public class OrderDetailsEntity {
     }
 
 
-    @Basic
+
     @Column(name = "order_date")
     public String getOrderDate() {
         return orderDate;
@@ -101,7 +101,7 @@ public class OrderDetailsEntity {
     }
 
 
-    @Basic
+
     @Column(name = "order_number")
     public String getOrderNumber() {
         return orderNumber;

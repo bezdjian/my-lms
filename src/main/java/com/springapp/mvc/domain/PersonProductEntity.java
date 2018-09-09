@@ -14,7 +14,7 @@ public class PersonProductEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -31,6 +31,7 @@ public class PersonProductEntity {
         this.productid = productid;
     }
 
+    @Column(name = "personid")
     public int getPersonid() {
 
         return personid;
@@ -40,6 +41,7 @@ public class PersonProductEntity {
         this.personid = personid;
     }
 
+    @Column(name = "productid")
     public int getProductid() {
         return productid;
     }

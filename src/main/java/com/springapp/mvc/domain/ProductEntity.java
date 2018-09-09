@@ -18,7 +18,7 @@ public class ProductEntity {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -27,7 +27,7 @@ public class ProductEntity {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "create_date")
     public String getCreateDate() {
         return createDate;
@@ -37,7 +37,7 @@ public class ProductEntity {
         this.createDate = createDate;
     }
 
-    @Basic
+
     @Column(name = "image")
     public String getImage() {
         return image;
@@ -47,7 +47,7 @@ public class ProductEntity {
         this.image = image;
     }
 
-    @Basic
+
     @Column(name = "name")
     public String getName() {
         return name;
@@ -57,7 +57,7 @@ public class ProductEntity {
         this.name = name;
     }
 
-    @Basic
+
     @Column(name = "price")
     public double getPrice() {
         return price;
@@ -67,7 +67,7 @@ public class ProductEntity {
         this.price = price;
     }
 
-    @Basic
+
     @Column(name = "product_description")
     public String getProduct_description() {
         return product_description;
@@ -77,7 +77,7 @@ public class ProductEntity {
         this.product_description = product_description;
     }
 
-    @Basic
+
     @Column(name = "currency")
     public String getCurrency() {
         return currency;

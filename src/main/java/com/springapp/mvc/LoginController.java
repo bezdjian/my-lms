@@ -4,7 +4,7 @@ package com.springapp.mvc;
  * Created by bezdj on 05/06/2017.
  */
 
-import com.springapp.mvc.domain.Login;
+import com.springapp.mvc.pojo.Login;
 import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.helpers.CryptoUtils;
 import com.springapp.mvc.service.PersonService;

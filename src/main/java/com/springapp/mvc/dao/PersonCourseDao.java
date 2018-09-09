@@ -2,7 +2,7 @@ package com.springapp.mvc.dao;
 
 import com.springapp.mvc.domain.CourseEntity;
 import com.springapp.mvc.domain.PersonCourseEntity;
-import com.springapp.mvc.domain.PersonCourseObject;
+import com.springapp.mvc.pojo.PersonCourseObject;
 
 import java.util.List;
 
