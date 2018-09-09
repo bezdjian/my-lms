@@ -112,6 +112,12 @@
     }
 }
 
+@media screen and (max-width: 767px){
+    .toggle-wrap{
+        display: none;
+    }
+}
+
 .toggle-wrap {
     padding: 10px;
     position: relative;

@@ -15,7 +15,13 @@
             <div class="row">
                 <div class="col-sm-9">
                     <div class="panel">
-                        <div class="panel-body">
+                        <div class="panel-heading">
+                            <div id="welcome-panel">
+                                <h2>My courses</h2>
+                            </div>
+                        </div>
+
+                        <div class="container panel-body">
                             <div>
                                 <c:forEach var="products" items="${personproducts}">
 
