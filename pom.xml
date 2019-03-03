@@ -213,7 +213,7 @@
                 <!--plugin>
                     <groupId>com.oracle.weblogic</groupId>
                     <artifactId>weblogic-maven-plugin</artifactId>
-                    <version>10.3.4</version>
+                    <version>10.3.6.0</version>
                     <configuration>
                         <adminurl>t3://localhost:7001</adminurl>
                         <user>weblogic</user>
