@@ -7,7 +7,6 @@ import com.springapp.mvc.domain.PersonEntity;
 import com.springapp.mvc.helpers.CryptoUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -59,8 +58,9 @@ public class PersonController {
 			try{
 				String uploadsDir = File.separator + "resources" + File.separator + "profile_pictures";
 				String realPathtoUploads = request.getServletContext().getRealPath(uploadsDir);
-				if (!new File(realPathtoUploads).exists()) {
-					new File(realPathtoUploads).mkdir();
+				File profilePicturesFolder = new File(realPathtoUploads);
+				if (!profilePicturesFolder.exists()) {
+					profilePicturesFolder.mkdir();
 				}
 
 				orgName = image.getOriginalFilename();
@@ -69,6 +69,8 @@ public class PersonController {
 
 			}catch (Exception e){
 				e.printStackTrace();
+				String errormsg = "Could not save profile picture: " + e.getMessage();
+				return "redirect:/error/" + errormsg;
 			}
 		}
 

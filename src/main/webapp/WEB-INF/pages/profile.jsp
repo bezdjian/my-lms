@@ -12,6 +12,12 @@
     <div id="page" class="panel panel-default">
         <div id="page-content" class="panel-body">
 
+            <c:if test="${errormsg != null || errormsg != ''}">
+                <div id="error-dialog-error-label">
+                    <p>${errormsg}</p>
+                </div>
+            </c:if>
+
             <div class="row">
                 <div class="col-sm-9">
                     <div class="panel panel-default">
