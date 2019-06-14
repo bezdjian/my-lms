@@ -21,7 +21,7 @@
                             </div>
                         </div>
 
-                        <form:form action="${contextPath}/editprofile/${person.id}/doedit" commandName="person" enctype="multipart/form-data" method="post">
+                        <form:form action="${contextPath}/editprofile/${person.id}/doedit" modelAttribute="person" enctype="multipart/form-data" method="post">
                             <input type="hidden" name="accounttype" id="accounttype" value="${person.accounttype}"/>
                             <input type="hidden" name="role" id="role" value="${person.role}"/>
                             <div class="panel-body">
