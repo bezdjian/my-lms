@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.springapp.mvc.controller;
 
 import com.springapp.mvc.dao.PersonCourseDao;
 import com.springapp.mvc.dao.PersonDao;

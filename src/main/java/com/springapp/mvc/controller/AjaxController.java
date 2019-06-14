@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.springapp.mvc.controller;
 
 import com.springapp.mvc.ajaxClasses.Greeting;
 import com.springapp.mvc.ajaxClasses.PersonCourses;

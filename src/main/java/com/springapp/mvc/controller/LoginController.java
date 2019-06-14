@@ -1,4 +1,4 @@
-package com.springapp.mvc;
+package com.springapp.mvc.controller;
 
 /**
  * Created by bezdj on 05/06/2017.
