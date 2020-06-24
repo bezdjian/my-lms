@@ -1,8 +1,10 @@
- my LMS
+ ## My LMS
+
+- Empty master branch, check for other branches.
+
  -
- A LMS app with Java, Spring MVC, Hibernate and Maven.
- 
- 
+ A LMS app with Java, Spring MVC/Spring Boot MVC, Hibernate and Maven.
+
 A web application for learning Spring MVC purposes.
 
 Web application is about:
