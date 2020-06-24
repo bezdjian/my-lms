@@ -7,7 +7,7 @@
                 <!--div id="header" class="header-panel">
                     <div id="header-content">
                         <div id="logo">
-                            <img src="<c:url value="/resources/img/logo.jpg"/>" />
+                            <img src="<c:url value="../../../../resources/static/img/logo.jpg"/>" />
                         </div>
                     </div>
                 </div-->
@@ -29,11 +29,11 @@
                             <li><a href="<c:url value="/profile/${person.id}" />">Profile</a></li>
                             <li><a href="#">Stuff</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a href="<c:url value="/" />">Log out</a></li>
+                            <li><a href="<c:url value="/static" />">Log out</a></li>
                         </ul>
                     </div>
 
-                    <!--a href="<c:url value="/" />" class="signout">
+                    <!--a href="<c:url value="/static" />" class="signout">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a-->
                 </div>

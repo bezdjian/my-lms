@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -13,10 +12,9 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 public class MainTest {
 
-    private MockMvc mockMvc;
-
     @Autowired
     protected WebApplicationContext wac;
+    private MockMvc mockMvc;
 
     @Before
     public void setup() {

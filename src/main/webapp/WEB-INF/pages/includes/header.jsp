@@ -66,7 +66,7 @@
             <c:if test="${person.id == null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="<c:url value="/" /> ">
+                        <a href="<c:url value="/static" /> ">
                             <i class="fa fa-sign-in" aria-hidden="true"></i>
                             Login/Sign Up
                         </a>
@@ -97,7 +97,7 @@
                                 </ul>
                             </div>
 
-                        <!--a href="<c:url value="/" />" class="signout">
+                        <!--a href="<c:url value="/static" />" class="signout">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                         </a-->
                         </div>
