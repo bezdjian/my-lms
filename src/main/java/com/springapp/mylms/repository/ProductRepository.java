@@ -1,6 +1,6 @@
 package com.springapp.mylms.repository;
 
-import com.springapp.mylms.domain.ProductEntity;
+import com.springapp.mylms.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

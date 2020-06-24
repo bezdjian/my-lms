@@ -1,4 +1,4 @@
-<%@include file="includes/header.jsp"%>
+<%@include file="includes/header.jsp" %>
 
 <div id="container" class="container-fluid">
     <!--div id="header" class="header-panel">
@@ -21,49 +21,50 @@
                             </div>
                         </div>
 
-                       <div>
-                           <table id="all-user-table" class="table table-striped" width="100%" cellspacing="0">
-                               <thead>
-                               <tr>
-                                   <th>Name</th>
-                                   <th>Email</th>
-                                   <th>Country</th>
-                                   <th>Company</th>
-                                   <th>Action</th>
-                               </tr>
-                               </thead>
-                               <tbody>
-                               <c:forEach var="user" items="${allusers}">
-                                   <tr>
-                                       <td>
-                                           <a href="<c:url value="/profile/${user.id}" />">
-                                               <c:choose>
-                                                   <c:when test="${user.profileImage == null}">
-                                                       <img id="profile-image-allusers"
-                                                            src="${contextPath}/resources/images/noimage.png" />
-                                                   </c:when>
-                                                   <c:otherwise>
-                                                       <img id="profile-image-allusers" src="${contextPath}/resources/profile_pictures/${user.profileImage}" />
-                                                   </c:otherwise>
-                                               </c:choose>
-                                               <span>${user.firstname} ${user.lastname}</span>
-                                           </a>
-                                       </td>
-                                       <td>${user.email}</td>
-                                       <td>${user.country}</td>
-                                       <td>${user.companyname}</td>
-                                       <td>
-                                           <a href="<c:url value="/editprofile/${user.id}/preedit" />">
-                                               <i class="fa fa-edit" aria-hidden="true"></i>
-                                           </a>
-                                           <a href="<c:url value="/delete/${user.id}" />">
-                                               <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                           </a>
-                                       </td>
-                                   </tr>
-                               </c:forEach>
-                               </tbody>
-                           </table>
+                        <div>
+                            <table id="all-user-table" class="table table-striped" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Country</th>
+                                    <th>Company</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach var="user" items="${allusers}">
+                                    <tr>
+                                        <td>
+                                            <a href="<c:url value="/profile/${user.id}" />">
+                                                <c:choose>
+                                                    <c:when test="${user.profileImage == null}">
+                                                        <img id="profile-image-allusers"
+                                                             src="${contextPath}/resources/images/noimage.png"/>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <img id="profile-image-allusers"
+                                                             src="${contextPath}/resources/profile_pictures/${user.profileImage}"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <span>${user.firstName} ${user.lastName}</span>
+                                            </a>
+                                        </td>
+                                        <td>${user.email}</td>
+                                        <td>${user.country}</td>
+                                        <td>${user.companyName}</td>
+                                        <td>
+                                            <a href="<c:url value="/editprofile/${user.id}/preedit" />">
+                                                <i class="fa fa-edit" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="<c:url value="/delete/${user.id}" />">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <c:if test="${person.role == 'admin'}">
@@ -85,7 +86,7 @@
                             </a>
                             <c:if test="${delete_msg != null}">
                                 <p class="alert alert-success">
-                                    ${delete_msg}
+                                        ${delete_msg}
                                 </p>
                             </c:if>
 
@@ -94,9 +95,9 @@
                 </div>
 
                 <!-- Right side block -->
-                <%@include file="includes/blocks.jsp"%>
+                <%@include file="includes/blocks.jsp" %>
             </div>
         </div>
     </div>
-    <%@include file="includes/footer.jsp"%>
+    <%@include file="includes/footer.jsp" %>
 </div>

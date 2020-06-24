@@ -2,8 +2,8 @@ package com.springapp.mylms.api;
 
 import com.springapp.mylms.repository.PersonCourseRepository;
 import com.springapp.mylms.repository.PersonProductRepository;
-import com.springapp.mylms.domain.PersonEntity;
-import com.springapp.mylms.domain.ProductEntity;
+import com.springapp.mylms.entity.PersonEntity;
+import com.springapp.mylms.entity.ProductEntity;
 import com.springapp.mylms.modal.PersonCourseObject;
 import com.springapp.mylms.service.PersonService;
 import org.springframework.http.MediaType;

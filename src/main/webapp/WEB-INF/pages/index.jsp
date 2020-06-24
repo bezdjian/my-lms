@@ -50,15 +50,15 @@
                 <input type="password" name="password" id="password" placeholder="Password" required/>
 
 
-                <label class="icon" for="firstname">
+                <label class="icon" for="firstName">
                     <i class="fa fa-user" aria-hidden="true"></i>
                 </label>
-                <input type="text" name="firstname" id="firstname" placeholder="Firstname" required/>
+                <input type="text" name="firstName" id="firstName" placeholder="first name" required/>
 
-                <label class="icon" for="lastname">
+                <label class="icon" for="lastName">
                     <i class="fa fa-user" aria-hidden="true"></i>
                 </label>
-                <input type="text" name="lastname" id="lastname" placeholder="Lastname" required/>
+                <input type="text" name="lastName" id="lastName" placeholder="Last name" required/>
 
                 <label class="icon" for="email">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -75,20 +75,20 @@
 
             <div class="companyforms">
                 <!-- Company -->
-                <label class="icon" for="companyname">
+                <label class="icon" for="companyName">
                     <i class="fa fa-building-o" aria-hidden="true"></i>
                 </label>
-                <input type="text" name="companyname" id="companyname" placeholder="Company name" required/>
+                <input type="text" name="companyName" id="companyName" placeholder="Company name" required/>
 
-                <label class="icon" for="companylocation">
+                <label class="icon" for="companyLocation">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                 </label>
-                <input type="text" name="companylocation" id="companylocation" placeholder="Company location" required/>
+                <input type="text" name="companyLocation" id="companyLocation" placeholder="Company location" required/>
 
-                <label class="icon" for="companyservices">
+                <label class="icon" for="companyServices">
                     <i class="fa fa-server" aria-hidden="true"></i>
                 </label>
-                <input type="text" name="companyservices" id="companyservices" placeholder="Company services" required/>
+                <input type="text" name="companyServices" id="companyServices" placeholder="Company services" required/>
                 <!-- EO: Company -->
 
                 <div class="gender">

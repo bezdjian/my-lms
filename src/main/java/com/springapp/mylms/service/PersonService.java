@@ -1,7 +1,7 @@
 package com.springapp.mylms.service;
 
 import com.springapp.mylms.repository.PersonRepository;
-import com.springapp.mylms.domain.PersonEntity;
+import com.springapp.mylms.entity.PersonEntity;
 import com.springapp.mylms.modal.UserReport;
 import org.springframework.stereotype.Service;
 

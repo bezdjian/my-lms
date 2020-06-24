@@ -13,7 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mylms" target="1.8" />
+      <module name="mylms" target="14" />
       <module name="SpringMVC" target="1.8" />
       <module name="SpringMVC__" target="1.8" />
     </bytecodeTargetLevel>

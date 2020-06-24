@@ -2,12 +2,11 @@ package com.springapp.mylms.controller;
 
 import com.springapp.mylms.ajaxClasses.Greeting;
 import com.springapp.mylms.ajaxClasses.PersonCourses;
-import com.springapp.mylms.repository.PersonProductRepository;
-import com.springapp.mylms.domain.PersonEntity;
-import com.springapp.mylms.domain.PersonProductEntity;
+import com.springapp.mylms.entity.PersonEntity;
+import com.springapp.mylms.entity.PersonProductEntity;
 import com.springapp.mylms.helpers.CryptoUtils;
+import com.springapp.mylms.repository.PersonProductRepository;
 import com.springapp.mylms.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,18 +24,21 @@ import java.util.List;
 @RestController
 public class AjaxController {
 
-    @Autowired
-    PersonService personService;
+    final PersonService personService;
+    final PersonProductRepository personProductDao;
 
-    @Autowired
-    PersonProductRepository personProductDao;
+    public AjaxController(PersonService personService,
+            PersonProductRepository personProductDao) {
+        this.personService = personService;
+        this.personProductDao = personProductDao;
+    }
 
     @GetMapping(value = "/getSearchResult")
     @ResponseBody
-    public ArrayList<PersonCourses> getSearchResultViaAjax(@RequestParam("firstname") String firstname,
-            @RequestParam("lastname") String lastname) {
-        ArrayList<PersonCourses> courses = new ArrayList<PersonCourses>();
-        courses.add(new PersonCourses(firstname, lastname, "coursename3"));
+    public List<PersonCourses> getSearchResultViaAjax(@RequestParam("firstname") String firstName,
+            @RequestParam("lastName") String lastName) {
+        List<PersonCourses> courses = new ArrayList<>();
+        courses.add(new PersonCourses(firstName, lastName, "coursename3"));
         return courses;
     }
 
@@ -51,13 +53,13 @@ public class AjaxController {
 
     @GetMapping(value = "/checkout")
     @ResponseBody
-    public String checkout(@RequestParam("personid") int personid,
-            @RequestParam("productids") List<Integer> productids) {
+    public String checkout(@RequestParam("personid") Long personId,
+            @RequestParam("productids") List<Long> productIds) {
 
-        for (Integer productId : productids) {
+        for (Long productId : productIds) {
             PersonProductEntity personProductEntity = new PersonProductEntity();
-            personProductEntity.setPersonid(personid);
-            personProductEntity.setProductid(productId);
+            personProductEntity.setPersonId(personId);
+            personProductEntity.setProductId(productId);
             personProductDao.save(personProductEntity);
         }
         return "done";
@@ -68,13 +70,5 @@ public class AjaxController {
     public Greeting greeting(@RequestParam("name") String name, Model m, HttpServletResponse respons) {
         String message = "Hello, %s!";
         return new Greeting(String.format(message, name), "lastname");
-        /*
-        try{
-            respons.sendRedirect("home");
-        }catch (IOException io){
-            System.out.print("------------------------------------------------------------------------------" + io
-            .getMessage());
-        }
-        */
     }
 }

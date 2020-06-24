@@ -16,7 +16,7 @@
 
                     <div class="panel">
                         <div class="panel panel-heading">
-                            <h4>Welcome  ${person.firstname} ${person.lastname}!</h4>
+                            <h4>Welcome  ${person.firstName} ${person.lastName}!</h4>
                         </div>
 
                         <div class="panel">

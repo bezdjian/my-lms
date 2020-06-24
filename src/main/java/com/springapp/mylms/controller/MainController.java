@@ -1,10 +1,10 @@
 package com.springapp.mylms.controller;
 
+import com.springapp.mylms.entity.PersonEntity;
+import com.springapp.mylms.helpers.CryptoUtils;
 import com.springapp.mylms.repository.PersonCourseRepository;
 import com.springapp.mylms.repository.PersonProductRepository;
 import com.springapp.mylms.repository.PersonRepository;
-import com.springapp.mylms.domain.PersonEntity;
-import com.springapp.mylms.helpers.CryptoUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -80,7 +80,8 @@ public class MainController {
         if (request.getSession().getAttribute("person") != null) {
             PersonEntity personInSession = (PersonEntity) request.getSession().getAttribute("person");
             //Reload person
-            //PersonEntity person = personDao.getUserById(personInSession.getId());
+            PersonEntity person = personRepository.getOne(personInSession.getId());
+            // TODO: GET Products and Courses.
             //List<ProductEntity> personProducts = personProductRepository.getAllPersonProducts(personInSession.getId
             // ());
             //List<PersonCourseObject> personCourses =
@@ -88,7 +89,7 @@ public class MainController {
 
             m.addAttribute("personProducts", Collections.emptyList());
             m.addAttribute("personCourses", Collections.emptyList());
-            //m.addAttribute("person", person);
+            m.addAttribute("person", person);
 
             //remove message_err
             request.getSession().setAttribute("message_err", null);

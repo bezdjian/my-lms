@@ -1,9 +1,10 @@
 package com.springapp.mylms.repository;
 
-import com.springapp.mylms.domain.CourseEntity;
-import com.springapp.mylms.domain.PersonCourseEntity;
+import com.springapp.mylms.entity.PersonCourseEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by bezdj on 04/02/2017.
@@ -11,5 +12,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonCourseRepository extends JpaRepository<PersonCourseEntity, Long> {
-    CourseEntity findPersonCourseEntitiesByPersonid(Long id);
+    List<PersonCourseEntity> findPersonCourseEntitiesByPersonId(Long id);
 }

@@ -1,8 +1,8 @@
 package com.springapp.mylms.controller;
 
+import com.springapp.mylms.entity.ProductEntity;
 import com.springapp.mylms.repository.PersonProductRepository;
 import com.springapp.mylms.repository.ProductRepository;
-import com.springapp.mylms.domain.ProductEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -39,7 +39,6 @@ public class ProductsController {
         m.addAttribute("mylmstitle", "Book Library");
         return "allproducts";
     }
-
 
     @GetMapping(value = "/view_editproduct/{productId}/{action}")
     public String viewEditProduct(Model m, HttpServletRequest request, @PathVariable("productId") Long productid,
@@ -89,7 +88,6 @@ public class ProductsController {
             }
         }
 
-
         if (productId > 0) { //updating
             ProductEntity currentProduct = productRepository.findById(productId).get();
             product.setId(productId);
@@ -116,7 +114,7 @@ public class ProductsController {
         // Send Strings from .properties maybe?
         // m.addAttribute("courses", "Courses--");
         m.addAttribute("person", request.getSession().getAttribute("person"));
-        m.addAttribute("personproducts", personProductRepository.findAllByPersonid(personId));
+        m.addAttribute("personproducts", personProductRepository.findAllByPersonId(personId));
         m.addAttribute("mylmstitle", "My books");
         return "viewpersonproducts";
     }

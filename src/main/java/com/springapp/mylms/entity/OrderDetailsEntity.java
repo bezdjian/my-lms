@@ -1,4 +1,4 @@
-package com.springapp.mylms.domain;
+package com.springapp.mylms.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,19 +24,19 @@ public class OrderDetailsEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(name = "amount")
-    private int amount;
+    private Long amount;
     @Column(name = "price")
     private double price;
     @Column(name = "quantity")
-    private int quantity;
+    private Long quantity;
     @Column(name = "order_id")
-    private int order_id;
+    private Long order_id;
     @Column(name = "product_id")
-    private int product_id;
+    private Long product_id;
     @Column(name = "person_id")
-    private int person_id;
+    private Long person_id;
     @Column(name = "order_date")
     private String orderDate;
     @Column(name = "order_number")

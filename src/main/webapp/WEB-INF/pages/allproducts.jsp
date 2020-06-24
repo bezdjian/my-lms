@@ -130,21 +130,21 @@
                             <label class="icon" for="companyName">
                                 <i class="fa fa-building-o" aria-hidden="true"></i>
                             </label>
-                            <p id="companyName">Company: ${person.companyname}</p>
+                            <p id="companyName">Company: ${person.companyName}</p>
                         </div>
 
                         <div>
                             <label class="icon" for="companyLocation">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                             </label>
-                            <p id="companyLocation">Location: ${person.companylocation}</p>
+                            <p id="companyLocation">Location: ${person.companyLocation}</p>
                         </div>
 
                         <div>
                             <label class="icon" for="companyServices">
                                 <i class="fa fa-server" aria-hidden="true"></i>
                             </label>
-                            <p id="companyServices">Services: ${person.companyservices}</p>
+                            <p id="companyServices">Services: ${person.companyServices}</p>
                         </div>
                     </div>
                 </div-->

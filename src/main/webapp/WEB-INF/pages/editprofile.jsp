@@ -17,7 +17,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div id="welcome-panel" class="welcome-panelsss">
-                                <h4>${person.firstname} ${person.lastname}</h4>
+                                <h4>${person.firstName} ${person.lastName}</h4>
                             </div>
                         </div>
 
@@ -52,13 +52,13 @@
                                     <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> First name:</label>
-                                                <input class="form-control" type="text" value="${person.firstname}" id="person_fname" name="person_fname"/>
+                                                <input class="form-control" type="text" value="${person.firstName}" id="person_fname" name="person_fname"/>
                                     </div>
 
                                     <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Last name:</label>
-                                                <input class="form-control" type="text" value="${person.lastname}" id="person_lname" name="person_lname"/>
+                                                <input class="form-control" type="text" value="${person.lastName}" id="person_lname" name="person_lname"/>
                                     </div>
 
                                     <div class="form-group">
@@ -87,21 +87,21 @@
                                     <div class="form-group">
                                         <label for="person_email" class="col-2 col-form-label">
                                             <i class="fa fa-envelope" aria-hidden="true"></i> Company:</label>
-                                        <input class="form-control" id="person_company" name="person_company" type="text" value="${person.companyname}" />
+                                        <input class="form-control" id="person_company" name="person_company" type="text" value="${person.companyName}" />
                                     </div>
 
 
                                     <div class="form-group">
                                         <label for="person_email" class="col-2 col-form-label">
                                             <i class="fa fa-envelope" aria-hidden="true"></i> Company Location:</label>
-                                        <input class="form-control" id="person_clocation" name="person_clocation" type="text" value="${person.companylocation}" />
+                                        <input class="form-control" id="person_clocation" name="person_clocation" type="text" value="${person.companyLocation}" />
                                     </div>
 
 
                                     <div class="form-group">
                                         <label for="person_email" class="col-2 col-form-label">
                                             <i class="fa fa-envelope" aria-hidden="true"></i> Company Services:</label>
-                                        <input class="form-control" id="person_cservices" name="person_cservices" type="text" value="${person.companyservices}" />
+                                        <input class="form-control" id="person_cservices" name="person_cservices" type="text" value="${person.companyServices}" />
                                     </div>
 
                                         <div class="form-group">

@@ -23,7 +23,7 @@
                     <div class="panel panel-default">
                         <!--div class="panel-heading">
                             <div id="welcome-panel" class="welcome-panelsss">
-                                <h4>${person.firstname} ${person.lastname}</h4>
+                                <h4>${person.firstName} ${person.lastName}</h4>
                             </div>
                         </div-->
 
@@ -53,13 +53,13 @@
                                         <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> First name:</label>
-                                            <span for="person_fname">${persontoview.firstname}</span>
+                                            <span for="person_fname">${persontoview.firstName}</span>
                                         </div>
 
                                         <div class="form-group">
                                             <label class="col-2 col-form-label">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Last name:</label>
-                                            <span for="person_fname">${persontoview.lastname}</span>
+                                            <span for="person_fname">${persontoview.lastName}</span>
                                         </div>
 
                                         <div class="form-group">

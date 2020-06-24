@@ -3,7 +3,7 @@ package com.springapp.mylms.controller;
 import com.springapp.mylms.repository.CourseRepository;
 import com.springapp.mylms.repository.PersonCourseRepository;
 import com.springapp.mylms.repository.PersonRepository;
-import com.springapp.mylms.domain.CourseEntity;
+import com.springapp.mylms.entity.CourseEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

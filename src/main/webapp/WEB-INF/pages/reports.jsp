@@ -28,7 +28,8 @@
                                     <div class="person-product-container">
                                         <div class="product-image">
                                             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                                            <a href="<c:url value="/profile/${report.personid}" />" class="report-user-name">
+                                            <a href="<c:url value="/profile/${report.personId}" />"
+                                               class="report-user-name">
                                                 <span>${report.fullname}, ${report.role}</span>
                                             </a>
                                         </div>
@@ -56,7 +57,7 @@
                                         <div class="product-image">
                                             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                                             <a href="<c:url value="/profile/${report.id}" />" class="report-user-name">
-                                                <span>${report.firstname} ${report.lastname}, ${report.role}</span>
+                                                <span>${report.firstName} ${report.lastName}, ${report.role}</span>
                                             </a>
                                         </div>
                                         <div class="user-courses-report">

@@ -86,7 +86,7 @@
 
                             <div class="dropdown my-dropdown">
                                 <button class="btn btn-primary btn-transparent dropdown-toggle" type="button" data-toggle="dropdown">
-                                        ${person.firstname} ${person.lastname}
+                                        ${person.firstName} ${person.lastName}
                                     <span class="caret"></span></button>
 
                                 <ul class="dropdown-menu">

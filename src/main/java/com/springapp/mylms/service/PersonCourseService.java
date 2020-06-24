@@ -1,8 +1,8 @@
 package com.springapp.mylms.service;
 
 import com.springapp.mylms.repository.PersonCourseRepository;
-import com.springapp.mylms.domain.CourseEntity;
-import com.springapp.mylms.domain.PersonCourseEntity;
+import com.springapp.mylms.entity.CourseEntity;
+import com.springapp.mylms.entity.PersonCourseEntity;
 import com.springapp.mylms.modal.PersonCourseObject;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +28,8 @@ public class PersonCourseService {
     }
 
     public CourseEntity getPersonCourseByPersonId(Long id) {
-        // return personCourseRepository.findById(id).get();
+        //TODO: map to course entity
+        //return personCourseRepository.findPersonCourseEntitiesByPersonId(id);
         return null;
     }
 

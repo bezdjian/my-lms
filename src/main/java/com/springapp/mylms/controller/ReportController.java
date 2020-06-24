@@ -1,6 +1,6 @@
 package com.springapp.mylms.controller;
 
-import com.springapp.mylms.domain.PersonEntity;
+import com.springapp.mylms.entity.PersonEntity;
 import com.springapp.mylms.modal.UserReport;
 import com.springapp.mylms.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -99,10 +99,10 @@ public class ReportController {
             //First add them to list of rows
             for (UserReport reportRow : report) {
                 rows.add(
-                        reportRow.getPersonid() + "," + reportRow.getFullname() + "," + reportRow.getRole() + "," + reportRow
-                                .getCoursename() + "," + reportRow.getEnddate() + "," + reportRow.getEnrolldate() +
+                        reportRow.getPersonId() + "," + reportRow.getFullname() + "," + reportRow.getRole() + "," + reportRow
+                                .getCourseName() + "," + reportRow.getEndDate() + "," + reportRow.getEnrollDate() +
                                 "," + reportRow
-                                .getStartdaate());
+                                .getStartDate());
                 rows.add("\n");
             }
 
@@ -123,7 +123,7 @@ public class ReportController {
             //First add them to list of rows
             for (PersonEntity reportRow : report) {
                 rows.add(
-                        reportRow.getId() + "," + reportRow.getFirstname() + " " + reportRow.getLastname() + "," + reportRow
+                        reportRow.getId() + "," + reportRow.getFirstName() + " " + reportRow.getLastName() + "," + reportRow
                                 .getRole() + "," + reportRow.getEmail() + "," + reportRow.getCountry());
                 rows.add("\n");
             }

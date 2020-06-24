@@ -1,7 +1,7 @@
 package com.springapp.mylms.service;
 
 import com.springapp.mylms.repository.OrderDetailsRepository;
-import com.springapp.mylms.domain.OrderDetailsEntity;
+import com.springapp.mylms.entity.OrderDetailsEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;

@@ -1,7 +1,7 @@
 package com.springapp.mylms.service;
 
 import com.springapp.mylms.repository.ProductRepository;
-import com.springapp.mylms.domain.ProductEntity;
+import com.springapp.mylms.entity.ProductEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;

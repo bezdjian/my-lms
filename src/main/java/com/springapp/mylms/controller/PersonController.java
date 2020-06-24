@@ -1,11 +1,11 @@
 package com.springapp.mylms.controller;
 
+import com.springapp.mylms.entity.PersonEntity;
+import com.springapp.mylms.helpers.CryptoUtils;
 import com.springapp.mylms.repository.PersonCourseRepository;
 import com.springapp.mylms.repository.PersonProductRepository;
 import com.springapp.mylms.repository.PersonRepository;
-import com.springapp.mylms.domain.PersonEntity;
-import com.springapp.mylms.helpers.CryptoUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,14 +30,19 @@ import static com.springapp.mylms.helpers.CryptoUtils.byteArrayToHexString;
 @Controller
 @Scope("session")
 @RequestMapping("/")
+@Slf4j
 public class PersonController {
 
-    @Autowired
-    PersonProductRepository personProductDao;
-    @Autowired
-    PersonCourseRepository personCourseDao;
-    @Autowired
-    private PersonRepository personDao;
+    private final PersonProductRepository personProductDao;
+    private final PersonCourseRepository personCourseDao;
+    private final PersonRepository personDao;
+
+    public PersonController(PersonProductRepository personProductDao,
+            PersonCourseRepository personCourseDao, PersonRepository personDao) {
+        this.personProductDao = personProductDao;
+        this.personCourseDao = personCourseDao;
+        this.personDao = personDao;
+    }
 
     @RequestMapping("/profile/{userId}")
     public String userProfile(HttpServletRequest request, Model model, @PathVariable("userId") Long userid) {
@@ -71,7 +76,7 @@ public class PersonController {
                 image.transferTo(new File(filePath));
 
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error(e.getMessage());
                 String errormsg = "Could not save profile picture: " + e.getMessage();
                 return "redirect:/error/" + errormsg;
             }
@@ -88,16 +93,16 @@ public class PersonController {
             String hash = byteArrayToHexString(CryptoUtils.computeHash(password));
             editUser.setPassword(hash);
 
-            editUser.setFirstname(request.getParameter("person_fname"));
-            editUser.setLastname(request.getParameter("person_lname"));
+            editUser.setFirstName(request.getParameter("person_fname"));
+            editUser.setLastName(request.getParameter("person_lname"));
             editUser.setGender(request.getParameter("gender"));
             editUser.setCountry(request.getParameter("country"));
             editUser.setEmail(request.getParameter("person_email"));
-            editUser.setCompanyname(request.getParameter("person_company"));
-            editUser.setCompanylocation(request.getParameter("person_clocation"));
-            editUser.setCompanyservices(request.getParameter("person_cservices"));
+            editUser.setCompanyName(request.getParameter("person_company"));
+            editUser.setCompanyLocation(request.getParameter("person_clocation"));
+            editUser.setCompanyServices(request.getParameter("person_cservices"));
             editUser.setRole(request.getParameter("role"));
-            editUser.setAccounttype(request.getParameter("accounttype"));
+            editUser.setAccountType(request.getParameter("accounttype"));
 
             //We already loaded the userById, update image if the new one is uploaded.
             if (imageUpdated) {

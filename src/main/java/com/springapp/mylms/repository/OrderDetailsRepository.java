@@ -1,10 +1,8 @@
 package com.springapp.mylms.repository;
 
-import com.springapp.mylms.domain.OrderDetailsEntity;
+import com.springapp.mylms.entity.OrderDetailsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Created by bezdj on 17/08/2017.

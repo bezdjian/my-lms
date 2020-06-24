@@ -1,7 +1,7 @@
 package com.springapp.mylms.service;
 
 import com.springapp.mylms.repository.CourseRepository;
-import com.springapp.mylms.domain.CourseEntity;
+import com.springapp.mylms.entity.CourseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

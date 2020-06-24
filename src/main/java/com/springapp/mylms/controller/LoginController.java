@@ -4,7 +4,7 @@ package com.springapp.mylms.controller;
  * Created by bezdj on 05/06/2017.
  */
 
-import com.springapp.mylms.domain.PersonEntity;
+import com.springapp.mylms.entity.PersonEntity;
 import com.springapp.mylms.helpers.CryptoUtils;
 import com.springapp.mylms.modal.Login;
 import com.springapp.mylms.service.PersonService;
